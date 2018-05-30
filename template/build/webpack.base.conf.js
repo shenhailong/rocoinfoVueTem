@@ -26,7 +26,6 @@ module.exports = {
     cart: './src/entries/cart.js',
     order: './src/entries/order.js',
     vip: './src/entries/vip.js',
-    community: './src/entries/community.js',
     user: './src/entries/user.js',
     interest: './src/entries/interest.js',
     'preview': './src/entries/preview.js',
