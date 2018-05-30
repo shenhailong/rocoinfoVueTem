@@ -1,6 +1,4 @@
 import axios from 'axios'
-import Cookies from 'js-cookie'
-import createVipModal from '@/components/Vip'
 import {
   Toast
 } from 'rocoui'
@@ -49,12 +47,6 @@ axios.interceptors.request.use(
     //   console.error(e.toString())
     // }
     // }
-    // 判断是否弹出会员权益
-    if (Cookies.get('upgradeHint') === 'true') {
-      createVipModal()
-      Cookies.set('upgradeHint', false)
-    }
-
     return config
   },
   function(error) {
