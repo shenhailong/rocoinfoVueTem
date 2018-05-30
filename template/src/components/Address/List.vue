@@ -31,7 +31,7 @@
                   <span>{{address.receiverMobile}}</span>
                 </div>
                 <div class="item-address">
-                  {{`${address.provinceLabel} ${address.cityLabel} ${address.districtLabel} ${address.detail}`}}
+
                 </div>
               </div>
               <div class="card-footer _border-top">
