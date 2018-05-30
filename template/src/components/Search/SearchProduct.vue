@@ -24,7 +24,7 @@
             <div class="item-price-original" v-if="items.type === activityType.TIME_LIMITED.value">
               <em>¥</em>{{items.salePrice}}
             </div>
-            <!-- <span class="tag tag-sm tag-primary" v-if="items.type">{{activityType[items.type].text}}</span> -->
+
           </div>
         </div>
       </div>
@@ -73,7 +73,7 @@
               <div class="item-price-original" v-if="items.type === activityType.TIME_LIMITED.value">
                 <em>¥</em>{{items.salePrice}}
               </div>
-              <!-- <span class="tag tag-sm tag-primary" v-if="items.type">{{activityType[items.type].text}}</span> -->
+
             </div>
           </div>
         </div>
@@ -103,7 +103,7 @@
               <div class="item-price-original" v-if="items.type === activityType.TIME_LIMITED.value">
                 <em>¥</em>{{items.salePrice}}
               </div>
-              <!-- <span class="tag tag-sm tag-primary" v-if="items.type">{{activityType[items.type].text}}</span> -->
+
             </div>
           </div>
         </div>
