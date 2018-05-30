@@ -1,0 +1,559 @@
+/*
+  定义状态栏样式
+*/
+//状态栏公共的基础样式
+.bar{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  // border-bottom: 1px solid #ffffff;
+  .svg-arrow{
+    width: px2rem(16px);
+    height: px2rem(28px);
+  }
+  &._border{
+    border-bottom: 1px solid $color-border;
+  }
+  &._flex-end{
+    justify-content: flex-end;
+  }
+  &._flex-start{
+    justify-content: flex-start;
+  }
+  &._flex-between{
+    justify-content: flex-start;
+  }
+  .message{
+    position: relative;
+    @include font-dpr(0);
+    .badge{
+      @include font-dpr(0);
+      position: absolute;
+      right: px2rem(-1px);
+      top: px2rem(0px);
+    }
+  }
+}
+//固定在顶部的状态栏
+.bar-fixed-top{
+  position: fixed;
+  left: 0;
+  top: 0;
+  //比遮罩层高一层
+  z-index: $bar-zindex;
+}
+//固定在底部的状态栏
+.bar-fixed-bottom{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  //比遮罩层低一层
+  z-index: $bar-zindex;
+}
+//固定在顶部的状态栏
+.bar-absolute-top{
+  position: absolute;
+  left: 0;
+  top: 0;
+  // top: px2rem(-2px);
+  //比遮罩层高一层
+  z-index: $bar-zindex;
+  ~.modal-full-screen-content{
+    padding-top: px2rem(88px);
+  }
+}
+//固定在底部的状态栏
+.bar-absolute-bottom{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  //比遮罩层低一层
+  z-index: $bar-zindex;
+  ~.modal-full-screen-content{
+    padding-bottom: px2rem(97px);
+  }
+}
+.bar-box-top,
+.bar-box-bottom{
+  width: 100%;
+  background: #ffffff;
+}
+.logo-bar{
+  width: px2rem(250px);
+  height: px2rem(18px);
+}
+
+/* 导航栏 */
+.bar-between{
+  background: #ffffff;
+  color: #333333;
+  @include font-dpr(32px);
+  height: px2rem(88px);
+  justify-content: space-between;
+  &.bar-fixed-top ~.content,
+  &.bar-absolute-top ~.content{
+    padding-top: px2rem(88px);
+  }
+  .bar-item{
+    padding: 0 px2rem(30px);
+  }
+  .svg-stores{
+    fill: #333333;
+  }
+}
+.bar-nav{
+  background: #ffffff;
+  color: #333333;
+  @include font-dpr(30px);
+  height: px2rem(88px);
+  &.bar-fixed-top ~.content,
+  &.bar-absolute-top ~.content{
+    padding-top: px2rem(88px);
+  }
+  .bar-item{
+    display: flex;
+    align-items: center;
+    height: inherit;
+    padding:0 px2rem(30px);
+    @include lh-dpr(88px);
+    &:nth-child(1){
+      position: absolute;
+      left: 0;
+      z-index: 111;
+    }
+    &:nth-child(2){
+      width: 100%;
+      margin: 0 px2rem(70px);
+      justify-content: center;
+    }
+    &:nth-child(3){
+      position: absolute;
+      right: 0;
+      z-index: 111;
+    }
+  }
+  .text{
+    color: #999999;
+    @include font-dpr(22px);
+  }
+  .links-text{
+    color: #666666;
+    @include font-dpr(26px);
+  }
+  .message .badge{
+    top: px2rem(20px);
+  }
+}
+/* 导航栏 自定义带logo的 */
+.bar-nav-logo{
+  background: #ffffff;
+  height: px2rem(88px);
+  @include font-dpr(32px);
+  &.bar-fixed-top ~.content,
+  &.bar-absolute-top ~.content{
+    padding-top: px2rem(88px);
+  }
+  .bar-item{
+    // width: 33.3333%;
+    display: flex;
+    align-items: center;
+    height: px2rem(88px);
+    &:nth-child(1){
+      width: px2rem(182px);
+      height: px2rem(88px);
+      padding-left: px2rem(20px);
+    }
+    &:nth-child(2){
+      flex: 1;
+      justify-content: center;
+    }
+    &:nth-child(3){
+    }
+    .link-search{
+      padding-left: px2rem(20px);
+      padding-right: px2rem(20px);
+    }
+    .link-member{
+      padding-left: px2rem(20px);
+      padding-right: px2rem(20px);
+    }
+    .svg-triangle{
+      margin-left: px2rem(14px);
+    }
+  }
+}
+/* 工具栏 - 搜索 */
+.bar-search{
+  padding: 0 px2rem(30px);
+  height: px2rem(88px);
+	background: #ffffff;
+  &.bar-fixed-top ~.content,
+  &.bar-absolute-top ~.content{
+    padding-top: px2rem(88px);
+  }
+  .item-arrow{
+    margin-right: px2rem(30px);
+  }
+  .item-search{
+    position: relative;
+    flex: 1;
+  }
+  .item-menu{
+    display: flex;
+    align-items: center;
+    padding-left: px2rem(20px);
+  }
+  .location-city{
+    margin-right: px2rem(40px);
+    @include font-dpr(28px);
+    display: flex;
+    align-items: center;
+    .svg-triangle{
+      margin-left: px2rem(10px);
+    }
+  }
+  .item-search-btn{
+    display: flex;
+    align-items: center;
+    color: #333333;
+    @include font-dpr(30px);
+    padding-left: px2rem(30px);
+    svg{
+      fill: #333333;
+    }
+  }
+  .item-store{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: px2rem(30px);
+    padding-right: px2rem(10px);
+    svg{
+      fill: #333333;
+    }
+  }
+}
+/* 标签栏 */
+.bar-tab{
+  background: #ffffff;
+  height: px2rem(98px);
+  z-index: 11 !important;
+  border-top: 1px solid $color-border;
+  &.bar-fixed-bottom ~.content,
+  &.bar-absolute-bottom ~.content{
+    padding-bottom: px2rem(98px);
+  }
+  .bar-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    color: $color-text;
+    @include font-dpr(26px);
+    flex: 1;
+    .tab-icon{
+      display: inline-block;
+      position: relative;
+    }
+    &._active{
+      color:  $color-primary;
+      svg{
+        fill: $color-primary;
+      }
+    }
+  }
+  .badge {
+    position: absolute;
+    top: px2rem(-8px);
+    left: px2rem(88px);
+    z-index: 11;
+    @include font-dpr(22px);
+  }
+  .tab-text{
+    display: block;
+    @include lh-dpr(38px);
+  }
+}
+.bar-tab-horizontal{
+  padding-top: px2rem(20px);
+  .icon{
+    margin-right: px2rem(4px);
+  }
+  .tab-icon{
+    @include lh-dpr(50px);
+  }
+  .tab-text{
+    display: inline-block;
+    @include lh-dpr(50px);
+  }
+  .badge{
+    top: 0;
+    left: auto;
+    right: px2rem(10px);
+  }
+}
+
+/* 工具栏 */
+.bar-tool{
+  background: #ffffff;
+  height: px2rem(98px);
+  color: #333333;
+  @include font-dpr(26px);
+  justify-content: space-between;
+  border-top: 1px solid $color-border;
+  &.bar-fixed-bottom ~.content,
+  &.bar-absolute-bottom ~.content{
+    padding-bottom: px2rem(98px);
+  }
+  .bar-button-small{
+    padding-right: px2rem(30px);
+    .btn-normal{
+      min-width: px2rem(136px);
+      border-radius: 0;
+      @include font-dpr(26px);
+      margin-right: px2rem(20px);
+      border-radius: px2rem(4px);
+    }
+  }
+  .bar-item{
+    svg{
+      width: px2rem(42px);
+      height: px2rem(40px);
+    }
+    &:nth-child(1){
+      margin-left: px2rem(30px);
+    }
+
+    &._active{
+      color:  $color-primary;
+      svg{
+        fill: $color-primary;
+      }
+    }
+  }
+  .tab-icon{
+    display: inline-block;
+    padding-top: px2rem(10px);
+    position: relative;
+  }
+  .tab-text{
+    display: block;
+    @include font-dpr(22px);
+    @include lh-dpr(44px);
+    color: #333333;
+  }
+  .bar-cart{
+    position: relative;
+    text-align: center;
+    margin-left: px2rem(50px) !important;
+    .badge {
+      position: absolute;
+      top: px2rem(0px);
+      left: px2rem(35px);
+      z-index: 11;
+    }
+  }
+  .bar-collect{
+    text-align: center;
+  }
+  .bar-price{
+    color: $color-primary;
+    @include font-dpr(36px);
+    em{
+      @include font-dpr(30px);
+    }
+  }
+
+  .bar-total{
+    flex: 1;
+    padding-right: px2rem(20px);
+    text-align: right;
+    @include font-dpr(22px);
+    .total-price{
+      @include lh-dpr(40px);
+    }
+    .sale-price{
+      @include font-dpr(22px);
+      @include lh-dpr(32px);
+      color: #999999;
+    }
+    .selected-num{
+      color: $color-primary;
+      em{
+        @include font-dpr(26px);
+      }
+    }
+  }
+  .bar-checkbox{
+    // width: px2rem(160px);
+    .label-checkbox{
+      @include font-dpr(22px);
+    }
+    .icon-form-checkbox{
+      margin-right: px2rem(14px);
+    }
+  }
+
+  .bar-item-button{
+    height: inherit;
+    &.single-button{
+      flex: 1;
+      .btn-normal{
+        width: 100%;
+      }
+    }
+    .btn-normal{
+      float: left;
+      min-width: px2rem(400px);
+      height: inherit;
+      border-radius: 0;
+      @include font-dpr(30px);
+      // @include lh-dpr(100px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    //用于按钮两栏显示
+    &._cloumn2{
+      .btn-normal{
+        min-width: px2rem(230px);
+      }
+    }
+    .btn-br{
+      @include font-dpr(30px);
+    }
+  }
+}
+.bar-tool-horizontal{
+  .tab-icon{
+    padding-top: 0;
+    @include lh-dpr(32px);
+    display: flex;
+    align-items: center;
+  }
+  .tab-text{
+    display: inline-block;
+    margin-left: px2rem(8px);
+  }
+  .badge{
+    top: 0;
+    left: auto;
+    right: px2rem(10px);
+  }
+}
+/*按钮栏*/
+.bar-button{
+  width: 100%;
+  background: #ffffff;
+  // min-height: px2rem(98px);
+  color: #333333;
+  &.bar-fixed-bottom ~.content,
+  &.bar-absolute-bottom ~.content{
+    padding-bottom: px2rem(98px);
+  }
+  .flex-item{
+    flex: 1;
+    border-radius: 0;
+  }
+  .btn-normal{
+    width: 100%;
+    height: inherit;
+    @include font-dpr(30px);
+    @include lh-dpr(100px);
+  }
+  &._pd{
+    padding: px2rem(30px);
+  }
+  &._pd-lr{
+    padding-left: px2rem(30px);
+    padding-right: px2rem(30px);
+  }
+  &._pd-sm{
+    padding: px2rem(16px) px2rem(30px);
+  }
+}
+
+.bar-filter{
+  width: 100%;
+  padding: 0 px2rem(30px);
+  height: px2rem(84px);
+  font-size: 0;
+  background: #ffffff;
+  &.bar-fixed-top ~.content,
+  &.bar-absolute-top ~.content{
+    padding-top: px2rem(84px);
+  }
+  svg{
+    // margin-left: px2rem(8px);
+  }
+  .bar-item{
+    @include font-dpr(26px);
+    color: $color-text;
+    white-space: nowrap;
+    .svg-triangle{
+      // margin-left: px2rem(10px);
+    }
+  }
+  .item-sort{
+    display: flex;
+    flex: 1;
+    height: px2rem(36px);
+    vertical-align: middle;
+    .item{
+      position: relative;
+      display: flex;
+      align-items: center;
+      + .item{
+        margin-left: px2rem(80px);
+      }
+    }
+  }
+  .icon-triangle-wrap{
+    position: relative;
+    margin-left: px2rem(10px);
+  }
+  .svg-triangle{
+    position: absolute;
+    left: 0;
+    &._down{
+      top: px2rem(2px);
+    }
+    &._up{
+      margin-top: px2rem(-10px);
+    }
+    &._click{
+      fill: $color-primary;
+    }
+  }
+}
+
+//评论栏
+.bar-comment{
+  padding-left: px2rem(30px);
+  padding-right: px2rem(60px);
+  .svg-heart{
+    fill: transparent;
+    stroke: $color-primary;
+    margin-left: px2rem(50px);
+  }
+}
+
+
+
+.ball-container .ball {
+  position: fixed;
+  left: px2rem(50px);
+  bottom: px2rem(98px);
+  z-index: 200;
+  transition: all 0.4s cubic-bezier(0.49, -0.69, 0.75, 0.41)
+}
+
+.ball-container .ball .inner {
+  width: px2rem(50px);
+  height: px2rem(50px);
+  border-radius: 50%;
+  background: #c6aa76;
+  transition: all .4s linear
+}

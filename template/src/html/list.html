@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="<%= htmlWebpackPlugin.options.inject_keywords %>" />
+    <meta name="description" content="<%= htmlWebpackPlugin.options.inject_description %>" />
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <title>猜你喜欢</title>
+
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../static/vendor/swiper/css/swiper.min.css" />
+    <!-- 引入组件库 -->
+    <script src="../../static/libs/flexible.js"></script>
+    <script src="../../static/vendor/swiper/js/swiper.min.js"></script>
+  </head>
+  <body>
+  <!--svg 图标集合-->
+  <div class="disN">
+    <?xml version="1.0" standalone="no"?>
+    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <symbol id="svg-arrow" viewBox="0 0 438 750">
+        <desc>svg 箭头</desc>
+        <path d="M430.696401,395.102744 C431.18292,394.129707 432.034327,393.278299 432.399216,392.305262 C440.913291,374.547334 438.115809,352.653997 423.033733,338.423328 L79.30835,13.307281 C60.577384,-4.450647 31.02138,-3.59924 13.263452,15.131726 C-4.494476,33.862692 -3.643069,63.418696 15.087897,81.176624 L323.540682,372.966148 L16.304193,669.012709 C-2.305143,686.892267 -2.791662,716.448271 15.087897,735.057607 C24.210121,744.544719 36.494715,749.409905 48.65768,749.409905 C60.334126,749.409905 72.010572,745.031238 81.011166,736.273903 L421.574178,407.995485 C422.182326,407.387337 422.425586,406.4143 423.155363,405.806151 C423.641882,405.319632 424.1284,404.954743 424.736548,404.468225 C427.53403,401.670745 428.871956,398.265115 430.696401,395.102744 L430.696401,395.102744 L430.696401,395.102744 Z"></path>
+      </symbol>
+      <symbol id="svg-return-top" viewBox="0 0 1040 1030">
+        <desc>svg 返回顶部</desc>
+        <path d="M192.8224,704 L288.9824,704 C297.47587,704.069586 305.639397,700.715303 311.630317,694.694277 C317.621237,688.673252 320.934558,680.493014 320.8224,672 C320.8224,654.848 306.5504,640 288.9824,640 L32.6944,640 C24.2009301,639.930414 16.0374033,643.284697 10.0464829,649.305723 C4.05556262,655.326748 0.742241787,663.506986 0.8544,672 C0.8544,689.152 15.1264,704 32.6944,704 L128.8544,704 L128.8544,992.576 C128.8544,1009.408 143.1904,1024 160.8544,1024 C178.0064,1024 192.8544,1009.92 192.8544,992.576 L192.8544,704 L192.8224,704 Z M970.9344,503.36 C979.213292,511.525444 991.270098,514.55725 1002.42661,511.279036 C1013.58313,508.000821 1022.0833,498.928583 1024.62895,487.582472 C1027.17459,476.236362 1023.36502,464.402276 1014.6784,456.672 L536.6624,8.672 C524.391408,-2.83727732 505.303863,-2.87922797 492.9824,8.576 L10.9984,456.576 C2.36731407,464.293069 -1.42213306,476.070458 1.08936604,487.372721 C3.60086515,498.674985 12.0215532,507.739135 23.1086424,511.074587 C34.1957317,514.41004 46.2197976,511.496513 54.5504,503.456 L514.6784,75.776 L970.9024,503.36 L970.9344,503.36 Z M512.8224,1024 C424.4704,1024 352.8224,938.048 352.8224,832 C352.8224,725.952 424.4704,640 512.8224,640 C601.1744,640 672.8224,725.952 672.8224,832 C672.8224,938.048 601.1744,1024 512.8224,1024 Z M512.8224,960 C562.9984,960 608.8224,905.024 608.8224,832 C608.8224,758.976 562.9984,704 512.8224,704 C462.6464,704 416.8224,758.976 416.8224,832 C416.8224,905.024 462.6464,960 512.8224,960 Z M768.8224,640 C786.495512,640 800.8224,654.326888 800.8224,672 L800.8224,992 C800.8224,1009.67311 786.495512,1024 768.8224,1024 C751.149288,1024 736.8224,1009.67311 736.8224,992 L736.8224,672 C736.8224,654.326888 751.149288,640 768.8224,640 Z" ></path>
+        <path d="M736.8224,672.096 L736.8224,831.904 C736.8224,849.312 751.1264,864 768.7584,864 L912.6624,864 C953.314429,864.971839 991.301348,843.83986 1011.91309,808.787216 C1032.52484,773.734572 1032.52484,730.265428 1011.91309,695.212784 C991.301348,660.16014 953.314429,639.028161 912.6624,640 L768.7584,640 C760.247442,639.956712 752.074863,643.329525 746.071685,649.362778 C740.068508,655.396032 736.736579,663.585364 736.8224,672.096 L736.8224,672.096 Z M800.8224,704 L912.8224,704 C939.3504,704 960.8224,725.312 960.8224,752 C960.8224,778.496 939.8944,800 912.8224,800 L800.8224,800 L800.8224,704 Z" ></path>
+      </symbol>
+    </svg>
+  </div>
+  <div class="wrap wrap-list">
+    <div class="bar bar-nav _border bar-absolute-top">
+      <a href="http://www.baidu.com" class="bar-item item-arrow">
+        <svg class="svg-arrow _left">
+          <use xlink:href="#svg-arrow" />
+        </svg>
+      </a>
+      <div class="bar-item">猜你喜欢</div>
+    </div>
+    <!--/.bar-nav-->
+
+    <div class="content">
+      <div class="list-product list-column2">
+        <div class="item-goods">
+          <div class="item-media">
+            <img src="../../static/images/m/img348x348.jpg">
+          </div>
+          <div class="item-inner">
+            <div class="item-title _ellipsis2">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+            <div class="item-subtitle _ellipsis">
+              平抚心情，净化空气
+            </div>
+            <div class="price-area">
+              <div class="item-price"><em>¥</em>118</div>
+              <div class="item-price-original"><em>¥</em>118</div>
+              <span class="tag tag-sm tag-primary">限时购</span>
+            </div>
+          </div>
+        </div>
+        <!--/.item-goods 商品-->
+        <div class="item-goods">
+          <div class="item-media">
+            <img src="../../static/images/m/img348x348.jpg">
+          </div>
+          <div class="item-inner">
+            <div class="item-title _ellipsis2">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+            <div class="item-subtitle _ellipsis">
+              平抚心情，净化空气
+            </div>
+            <div class="price-area">
+              <div class="item-price"><em>¥</em>118</div>
+              <div class="item-price-original"><em>¥</em>118</div>
+              <span class="tag tag-sm tag-primary">限时购</span>
+            </div>
+          </div>
+        </div>
+        <!--/.item-goods 商品-->
+        <div class="item-goods">
+          <div class="item-media">
+            <img src="../../static/images/m/img348x348.jpg">
+          </div>
+          <div class="item-inner">
+            <div class="item-title _ellipsis2">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+            <div class="item-subtitle _ellipsis">
+              平抚心情，净化空气
+            </div>
+            <div class="price-area">
+              <div class="item-price"><em>¥</em>118</div>
+              <div class="item-price-original"><em>¥</em>118</div>
+              <span class="tag tag-sm tag-primary">限时购</span>
+            </div>
+          </div>
+        </div>
+        <!--/.item-goods 商品-->
+        <div class="item-goods">
+          <div class="item-media">
+            <img src="../../static/images/m/img348x348.jpg">
+          </div>
+          <div class="item-inner">
+            <div class="item-title _ellipsis2">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+            <div class="item-subtitle _ellipsis">
+              平抚心情，净化空气
+            </div>
+            <div class="price-area">
+              <div class="item-price"><em>¥</em>118</div>
+              <div class="item-price-original"><em>¥</em>118</div>
+              <span class="tag tag-sm tag-primary">限时购</span>
+            </div>
+          </div>
+        </div>
+        <!--/.item-goods 商品-->
+      </div>
+      <img class="tips-nolist" src="../../static/images/img-footer.png" alt="加载到底图片">
+      <!--返回顶部按钮-->
+      <div class="float-window">
+        <a href="javascript:;" class="item">
+          <svg class="svg-icon svg-write"><use xlink:href="#svg-write"/></svg>
+        </a>
+        <a href="javascript:;" class="item return-top" id="returnTop">
+          <svg class="svg-icon svg-return-top"><use xlink:href="#svg-return-top"/></svg>
+        </a>
+      </div>
+      <!-- /.float-window -->
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.wrap -->
+  </body>
+</html>

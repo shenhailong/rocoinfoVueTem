@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="<%= htmlWebpackPlugin.options.inject_keywords %>" />
+    <meta name="description" content="<%= htmlWebpackPlugin.options.inject_description %>" />
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <title>邀请有礼</title>
+
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../static/vendor/swiper/css/swiper.min.css" />
+    <!-- 引入组件库 -->
+    <script src="../../static/libs/flexible.js"></script>
+    <script src="../../static/vendor/swiper/js/swiper.min.js"></script>
+  </head>
+  <body>
+  <!--svg 图标集合-->
+  <div class="disN">
+    <?xml version="1.0" standalone="no"?>
+    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <symbol id="svg-arrow" viewBox="0 0 438 750">
+        <desc>svg 箭头</desc>
+        <path d="M430.696401,395.102744 C431.18292,394.129707 432.034327,393.278299 432.399216,392.305262 C440.913291,374.547334 438.115809,352.653997 423.033733,338.423328 L79.30835,13.307281 C60.577384,-4.450647 31.02138,-3.59924 13.263452,15.131726 C-4.494476,33.862692 -3.643069,63.418696 15.087897,81.176624 L323.540682,372.966148 L16.304193,669.012709 C-2.305143,686.892267 -2.791662,716.448271 15.087897,735.057607 C24.210121,744.544719 36.494715,749.409905 48.65768,749.409905 C60.334126,749.409905 72.010572,745.031238 81.011166,736.273903 L421.574178,407.995485 C422.182326,407.387337 422.425586,406.4143 423.155363,405.806151 C423.641882,405.319632 424.1284,404.954743 424.736548,404.468225 C427.53403,401.670745 428.871956,398.265115 430.696401,395.102744 L430.696401,395.102744 L430.696401,395.102744 Z"></path>
+      </symbol>
+    </svg>
+  </div>
+  <div class="wrap wrap-invitation">
+    <div class="mask-layer "></div>
+    <div class="links-share-box ">
+      <div class="text">
+        <p class="text-column text-column01">邀请好友哦</p>
+        <p class="text-column  text-column02">点击这里转发链接</p>
+        <img class="icon01" src="../../static/images/img-share.png" alt="分享img">
+      </div>
+    </div>
+    <div class="content">
+      <div class="invitation-header">
+        <div class="title PangMenZhengDao">
+          <p>邀请新人下单</p>
+          <p>正价精油送不停</p>
+          <!-- <img src="../../static/images/invitation-title02.png" alt="title"> -->
+        </div>
+        <div class="slogan">多邀多送 永不封顶</div>
+        <!-- <img class="slogan-coupons" src="../../static/images/invitation-img01.png" alt="优惠img"> -->
+        <div class="coupons"> 50元券 </div>
+        <img class="img-children" src="../../static/images/invitation-img-child.png" alt="children">
+      </div>
+      <!-- /.invitation-header -->
+
+      <div class="invitation-content">
+        <form action="" class="form-invitation">
+          <div class="input-column">
+            <input class="input-text" type="text" placeholder="请输入手机号">
+          </div>
+          <div class="input-column">
+            <input class="input-text seccode-text" type="text" placeholder="请输入验证码">
+            <div class="links-text text-primary">获取验证码</div>
+            <!-- <div class="links-text ">120s</div> -->
+          </div>
+          <a href="javascript:;" class="btn-normal btn-invitation">立即领取</a>
+        </form>
+        <div class="function-zone">
+          <a href="javascript:;" class="btn-normal btn-invitation">邀请好友</a>
+          <div class="text">
+            <p>您已成功邀请4位好友，累计获得4件精油</p>
+            <a href="JavaScript:;" class="links">
+              查看所获的精油
+              <svg class="svg-arrow _right">
+                <use xlink:href="#svg-arrow" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <!-- /.function-zone -->
+        <div class="activity-rules-box">
+          <div class="title">活动细则</div>
+          <article class="text-area">
+            <section class="item">
+              <h1>1、邀请好友得精油</h1>
+              <p>转发商城链接给好友，好友打开连接通过手机号注册并
+                  下单，分享者可在好友确认收货15天后，领取一瓶商城
+                  随机赠送的IN ESSENCE正价精油。礼品领取时限为一
+                  年，到期将自动失效。</p>
+            </section>
+            <section class="item">
+              <h1>2、多邀多得不封顶</h1>
+              <p>赠品无上限，可将商城链接转发至多个好友，凡好友通
+                  过转发链接注册并下单，分享者可根据完成人数，收到
+                  相应数量的正价精油。</p>
+            </section>
+            <section class="item">
+              <h1>3、分享积分赚不停</h1>
+              <p>好友通过邀请链接注册下单，则分享者可获得与好友实
+                  付金额相对应的积分，即好友消费1元可获得1积分，以
+                  此类推。</p>
+            </section>
+          </article>
+        </div>
+        <!-- /.activity-rules-box -->
+        <p class="text-copyright">*此活动最终解释权归IN ESSENCE精油所有。</p>
+      </div>
+      <!-- /.invitation-content -->
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.wrap -->
+  </body>
+</html>

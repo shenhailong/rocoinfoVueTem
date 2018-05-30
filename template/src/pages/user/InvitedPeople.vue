@@ -1,0 +1,120 @@
+<template>
+  <div class="wrap wrap-center-mine-fans">
+    <div class="bar bar-nav _border bar-absolute-top">
+      <a href="javascript:;" @click="routerBack" class="bar-item item-arrow">
+        <svg class="svg-arrow _left">
+          <use xlink:href="#svg-arrow" />
+        </svg>
+      </a>
+      <div class="bar-item">我的邀请</div>
+    </div>
+    <!--/.bar-nav-->
+    <div class="content" id="scrollContent">
+      <div v-if="isEmpty" class="tips-box">
+        <div class="tips-no-result">
+          <div class="icon-area">
+            <i class="icon icon-no-invitaion">icon</i>
+          </div>
+          <p>没有邀请任何人</p>
+        </div>
+        <!-- /.tips-no-result -->
+      </div>
+      <!-- /.tips-box -->
+      <div v-else class="list-user">
+        <div v-for="(item, index) in inviteeInfo" :key="index"
+          class="item-goods item-horizontal">
+          <div class="author-column">
+            <div class="author-avatar">
+              <img v-lazy="{
+                src: item.profileImage ? item.profileImage : 'static/images/m/avatar.jpg',
+                loading: 'static/images/m/avatar.jpg',
+                error: 'static/images/m/avatar.jpg'
+              }" alt="avatar" class="lazy-img-fadein">
+            </div>
+          </div>
+          <!-- /.author -->
+          <div class="item-inner">
+            <div class="item-title _ellipsis">{{ item.nickname }}</div>
+            <div class="item-subtitle _ellipsis">
+              贡献积分：<span class="text-primary">{{ item.cent }}</span>
+            </div>
+            <!-- /.title -->
+          </div>
+          <!-- /.item-inner -->
+        </div>
+        <!--/.item-goods 水平摆放商品-->
+        <infinite-loading :on-infinite="onInfinite" ref="infiniteLoading" spinner="circles">
+          <span slot="no-results" style="display:none;"></span>
+          <div class="tips-txt" slot="no-more">
+            <span v-if="inviteeInfo.length > 8">-已经到底了-</span>
+          </div>
+        </infinite-loading>
+      </div>
+      <div class="float-window">
+        <ScrollTop :container="'#scrollContent'"></ScrollTop>
+      </div>
+      <!--返回顶部按钮-->
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.wrap -->
+</template>
+
+<script>
+import routerMixin from '@/mixin/router'
+import { Toast } from 'rocoui'
+import axios from '@/configs/axios'
+import InfiniteLoading from 'vue-infinite-loading'
+import ScrollTop from '@/components/ScrollTop'
+import CODE_SUCCESS from '@/constants/responseCode'
+export default {
+  mixins: [routerMixin],
+  name: 'MineInvitedPeople',
+  data () {
+    return {
+      inviteeInfo: [],
+      offset: 0,
+      limit: 10,
+      total: 0,
+      isEmpty: false
+    }
+  },
+  components: {
+    InfiniteLoading,
+    ScrollTop
+  },
+  methods: {
+    onInfinite: function () {
+      var self = this
+      let promise = axios.get('/api/wap/members/findInvitee', {
+        offset: self.offset,
+        limit: self.limit
+      }).then((res) => {
+        if (res.data.code === CODE_SUCCESS) {
+          if (res.data.data.rows.length) {
+            self.total = res.data.data.total
+            self.inviteeInfo = self.inviteeInfo.concat(res.data.data.rows)
+            self.$refs.infiniteLoading.$emit('$InfiniteLoading:loaded')
+            self.offset += self.limit
+            if (self.offset >= self.total) {
+              self.$refs.infiniteLoading.$emit('$InfiniteLoading:complete')
+            }
+            self.isEmpty = false
+          } else if (self.inviteeInfo.length) {
+            self.isEmpty = false
+            self.$refs.infiniteLoading.$emit('$InfiniteLoading:complete')
+          } else {
+            self.isEmpty = true
+            self.$refs.infiniteLoading.$emit('$InfiniteLoading:complete')
+          }
+        } else {
+          Toast.fail(res.data.message)
+          self.$refs.infiniteLoading.$emit('$InfiniteLoading:complete')
+        }
+      })
+      Toast.loading('加载中...', promise)
+    }
+  }
+}
+</script>
+

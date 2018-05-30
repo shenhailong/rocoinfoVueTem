@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="<%= htmlWebpackPlugin.options.inject_keywords %>" />
+    <meta name="description" content="<%= htmlWebpackPlugin.options.inject_description %>" />
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <title>新建地址</title>
+
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../static/vendor/swiper/css/swiper.min.css" />
+    <!-- 引入组件库 -->
+    <script src="../../static/libs/flexible.js"></script>
+    <script src="../../static/vendor/swiper/js/swiper.min.js"></script>
+  </head>
+  <body>
+  <!--svg 图标集合-->
+  <div class="disN">
+    <?xml version="1.0" standalone="no"?>
+    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <symbol id="svg-arrow" viewBox="0 0 438 750">
+        <desc>svg 箭头</desc>
+        <path d="M430.696401,395.102744 C431.18292,394.129707 432.034327,393.278299 432.399216,392.305262 C440.913291,374.547334 438.115809,352.653997 423.033733,338.423328 L79.30835,13.307281 C60.577384,-4.450647 31.02138,-3.59924 13.263452,15.131726 C-4.494476,33.862692 -3.643069,63.418696 15.087897,81.176624 L323.540682,372.966148 L16.304193,669.012709 C-2.305143,686.892267 -2.791662,716.448271 15.087897,735.057607 C24.210121,744.544719 36.494715,749.409905 48.65768,749.409905 C60.334126,749.409905 72.010572,745.031238 81.011166,736.273903 L421.574178,407.995485 C422.182326,407.387337 422.425586,406.4143 423.155363,405.806151 C423.641882,405.319632 424.1284,404.954743 424.736548,404.468225 C427.53403,401.670745 428.871956,398.265115 430.696401,395.102744 L430.696401,395.102744 L430.696401,395.102744 Z"></path>
+      </symbol>
+    </svg>
+  </div>
+  <div class="wrap wrap-add-adress">
+    <div class="bar bar-nav _border bar-absolute-top">
+      <a href="http://www.baidu.com" class="bar-item item-arrow">
+        <svg class="svg-arrow _left">
+          <use xlink:href="#svg-arrow" />
+        </svg>
+      </a>
+      <div class="bar-item">新建地址</div>
+    </div>
+    <!--/.bar-nav-->
+    <div class="content">
+      <form action="" class="form-normal form-add-address">
+        <div class="input-cloumn">
+          <div class="item-label">
+            收货人
+          </div>
+          <div class="item-input">
+            <input type="text" placeholder="收货人姓名">
+          </div>
+        </div>
+        <div class="input-cloumn">
+          <div class="item-label">
+            联系电话
+          </div>
+          <div class="item-input">
+            <input type="text" placeholder="手机号码">
+          </div>
+        </div>
+        <a href="javascript:;" class="input-cloumn">
+          <div class="item-label">
+            所在地区
+          </div>
+          <div class="item-input">
+            <input type="text" placeholder="选择所在城市">
+          </div>
+          <svg class="svg-arrow _right">
+            <use xlink:href="#svg-arrow" />
+          </svg>
+        </a>
+        <div class="input-cloumn flex-align-start">
+          <div class="item-label ">
+            详细地址
+          </div>
+          <div class="item-input">
+            <textarea class="item-textarea" name="" id=""  placeholder="小区/写字楼详细地址"></textarea>
+          </div>
+
+        </div>
+        <div class="input-cloumn">
+          <div class="item-label">
+            <label class="label-checkbox">
+              <input type="checkbox" name="my-radio">
+              <i class="icon icon-form-checkbox">icon</i>
+              设为默认地址
+            </label>
+          </div>
+        </div>
+        <div class="button-block">
+          <button type="button" class="btn-normal btn-primary _solid btn-xxl">保存收货地址</button>
+        </div>
+      </form>
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.wrap -->
+  </body>
+</html>

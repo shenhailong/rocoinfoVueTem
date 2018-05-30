@@ -1,0 +1,258 @@
+//== set icon.scss
+//
+//## css for icon 字体大小不会影响icon的垂直居中的位置,注意 icon 父元素必须设置line-height值为图片高
+.icon {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: inline-block;
+  white-space: nowrap;
+  letter-spacing: -1em;
+  text-indent: -99em;
+  color: transparent;
+  padding: 0;
+  margin: 0;
+  /* 主菜单小图标 */
+  &.icon-brand-mark-1,
+  &.icon-brand-mark-2,
+  &.icon-brand-mark-3{
+    width: px2rem(36px);
+    height: px2rem(36px);
+  }
+  //循环输出每一个icon的单独背景图片
+  @each $usr in 1, 2, 3{
+    &.icon-brand-mark-#{$usr} {
+      background-image: url('../images/icon-brand-mark/icon-brand-mark-#{$usr}.png');
+    }
+  }
+  &.icon-play{
+    width: px2rem(132px);
+    height: px2rem(132px);
+    background-image: url('../images/icon-play.png');
+  }
+
+  &.icon-no-result {
+    width: px2rem(176px);
+    height: px2rem(156px);
+    background-image: url('../images/icon-no-result.png');
+  }
+
+  &.icon-no-topic {
+    width: px2rem(212px);
+    height: px2rem(192px);
+    background-image: url('../images/icon-no-topic.png');
+  }
+
+  &.icon-no-collect {
+    width: px2rem(198px);
+    height: px2rem(180px);
+    background-image: url('../images/icon-no-collect.png');
+  }
+
+  &.icon-no-focus,
+  &.icon-no-invitaion {
+    width: px2rem(252px);
+    height: px2rem(230px);
+    background-image: url('../images/icon-no-focus.png');
+  }
+
+  &.icon-no-fans {
+    width: px2rem(180px);
+    height: px2rem(220px);
+    background-image: url('../images/icon-no-fans.png');
+  }
+
+  &.icon-no-activity{
+    width: px2rem(140px);
+    height: px2rem(140px);
+    background-image: url('../images/icon-no-activity.png');
+  }
+
+  &.icon-no-order {
+    width: px2rem(252px);
+    height: px2rem(230px);
+    background-image: url('../images/icon-no-order.png');
+  }
+
+
+  &.icon-finished {
+    width: px2rem(123px);
+    height: px2rem(110px);
+    background-image: url('../images/icon-finished.png');
+  }
+
+  &.icon-qr{
+    width: px2rem(83px);
+    height: px2rem(82px);
+    background-image: url('../images/icon-qr.png');
+  }
+  &.icon-weixin,
+  &.icon-alipay,
+  &.icon-personal,
+  &.icon-company,
+  &.icon-acount {
+    width: px2rem(44px);
+    height: px2rem(44px);
+  }
+  @each $usr in weixin,
+  alipay,
+  personal,
+  company,
+  acount {
+    &.icon-#{$usr} {
+      background-image: url('../images/icon-pay/icon-pay-#{$usr}.png');
+    }
+  }
+
+  &.icon-no-cart {
+    width: px2rem(248px);
+    height: px2rem(182px);
+    background-image: url('../images/icon-no-cart.png');
+  }
+  &.icon-success {
+    width: px2rem(133px);
+    height: px2rem(133px);
+    background-image: url('../images/icon-success.png');
+  }
+  &.icon-404 {
+    width: px2rem(471px);
+    height: px2rem(237px);
+    background-image: url('../images/icon-404.png');
+  }
+  &.icon-no-network {
+    width: px2rem(140px);
+    height: px2rem(124px);
+    background-image: url('../images/icon-no-signal.png');
+  }
+  &.icon-no-record {
+    width: px2rem(153px);
+    height: px2rem(136px);
+    background-image: url('../images/icon-no-record.png');
+  }
+  &.icon-no-address {
+    width: px2rem(214px);
+    height: px2rem(250px);
+    background-image: url('../images/icon-no-address.png');
+  }
+  &.icon-no-coupons {
+    width: px2rem(244px);
+    height: px2rem(200px);
+    background-image: url('../images/icon-no-coupons.png');
+  }
+  &.icon-tips-pay {
+    width: px2rem(154px);
+    height: px2rem(222px);
+    background-image: url('../images/icon-tips-pay.png');
+  }
+  &.icon-modal-menu {
+    width: px2rem(90px);
+    height: px2rem(90px);
+    line-height: px2rem(90px);
+    border-radius: 100%;
+    text-indent: 0;
+    &._menu01 {
+      background: #f5397d;
+    }
+    &._menu02 {
+      background: #7fe6fa;
+    }
+    &._menu03 {
+      background: #ffc843;
+    }
+  }
+}
+
+
+/* 倒三角 */
+
+.triangle {
+  position: relative;
+  &:after {
+    display: inline-block;
+    content: '';
+    border: solid transparent;
+    border-width: 11px;
+    position: absolute;
+    left: -2px;
+    top: 1px;
+    z-index: 2;
+  }
+  &:before {
+    display: inline-block;
+    content: '';
+    border: solid transparent;
+    border-width: 12px;
+    position: absolute;
+    left: -4px;
+    top: 0px;
+    z-index: 1;
+  }
+  &._left {
+    &:after {
+      border-right-color: #888888;
+    }
+    &:before {
+      border-right-color: #222222;
+    }
+  }
+  &._right {
+    &:after {
+      border-left-color: #888888;
+    }
+    &:before {
+      left: -2px;
+      border-left-color: #222222;
+    }
+  }
+  &._up {
+    &:after {
+      top: 2px;
+      left: -3px;
+      border-bottom-color: #888888;
+    }
+    &:before {
+      border-bottom-color: #222222;
+    }
+  }
+  &._down {
+    &:after {
+      top: 0px;
+      left: -3px;
+      border-top-color: #888888;
+    }
+    &:before {
+      border-top-color: #222222;
+    }
+  }
+}
+
+
+/* 个人中心头部图标 */
+.member-header {
+  .svg-edit {
+    fill: #fff;
+    width: px2rem(28px);
+    height: px2rem(30px);
+  }
+}
+
+/* 个人中心菜单图标 */
+.my-center-menu {
+  .svg-to-be-pay {
+    fill: #666;
+    width: px2rem(42px);
+    height: px2rem(39px);
+  }
+  .svg-to-be-used {
+    @extend .svg-to-be-pay;
+    height: px2rem(42px);
+  }
+  .svg-to-be-score {
+    @extend .svg-to-be-pay;
+    width: px2rem(39px);
+  }
+  .svg-all-order {
+    @extend .svg-to-be-pay;
+    width: px2rem(38px);
+  }
+}
+

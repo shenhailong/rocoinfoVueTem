@@ -1,0 +1,136 @@
+//== set helpers.scss
+//
+/* 特殊约定 下划线「_***」的样式是不能单独使用的，它们都必须配合父亲，或者兄弟元素使用 */
+/* 基础样式，放在最后 */
+._fullwidth{
+	width: 100%;
+	text-align: center;
+}
+
+._disabled{
+	cursor: not-allowed;
+	opacity: .5;
+	filter: alpha(opacity=50);
+}
+
+._ellipsis{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+._ellipsis2,
+._ellipsis3{
+  overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+._ellipsis2{
+    -webkit-line-clamp: 2;
+}
+._ellipsis3{
+  -webkit-line-clamp: 3;
+}
+._block{
+	display: block;
+}
+.circle{
+	border-radius: 50%;
+}
+
+// Border
+.border-bottom{
+	border-bottom: 1px solid $color-border;
+}
+.border-top{
+	border-top: 1px solid $color-border;
+}
+.border-no{
+	border: 0 !important;
+}
+// Float
+.clearfix{
+	@extend %clearfix;
+}
+.pull-left{
+	@extend %float-left;
+}
+.pull-right{
+	@extend %float-right;
+}
+// Text
+.text-center{
+  text-align: center !important;
+}
+.text-left{
+  text-align: left !important;;
+}
+.text-right{
+  text-align: right;
+}
+//Space
+.mb-20{
+  margin-bottom: px2rem(20px);
+}
+.space-20{
+  height: px2rem(20px);
+  background: $bg-primary;
+}
+.text-space{
+	span{
+    margin-left: px2rem(60px);
+    margin-right: px2rem(60px);
+	}
+}
+// Show Modle
+.hidden{
+	visibility: hidden !important;
+}
+.show{
+	visibility: visible !important;
+}
+.disB{
+	display: block !important;
+}
+.disN{
+	display: none !important;
+}
+.disIB{
+	display: inline-block !important;
+}
+//Background
+.bg-grey{
+	background: #aaaaaa;
+}
+.bg-primary{
+	background: $color-primary;
+}
+
+
+// 全局样式,Vue编辑结束前不显示
+[v-cloak] {
+	display: none;
+}
+
+@font-face {
+  font-family: 'PangMenZhengDao';
+  src: url('../../static/fonts/PangMenZhengDao.eot');
+  src:
+    url('../../static/fonts/PangMenZhengDao.eot?#font-spider') format('embedded-opentype'),
+    url('../../static/fonts/PangMenZhengDao.woff') format('woff'),
+    url('../../static/fonts/PangMenZhengDao.woff2') format('woff2'),
+    url('../../static/fonts/PangMenZhengDao.ttf') format('truetype'),
+    url('../../static/fonts/PangMenZhengDao.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/*使用选择器指定字体*/
+.PangMenZhengDao {
+  font-family: 'PangMenZhengDao';
+  transform: scale(1, 1.2);
+}
+
+.word-wrap{
+  word-break: break-all;
+  word-wrap: break-word;
+}

@@ -1,0 +1,66 @@
+.text-white{
+	color: #ffffff !important;
+}
+.text-primary{
+	color: $color-primary !important;
+}
+.text-grey{
+	color: #666666 !important;
+}
+.text-grey-light{
+	color: #999999 !important;
+}
+.text-default{
+	color: #333333 !important;
+}
+.text-green{
+	color: #00c800;
+}
+.text-blue{
+	color: #1caceb;
+}
+.text-red{
+	color: #ff0000;
+}
+.text-click{
+	color: $color-primary !important;
+	border-color: $color-primary !important;
+}
+
+/* 特殊约定 下划线「_***」的样式是不能单独使用的，它们都必须配合父亲，或者兄弟元素使用 */
+/* 基础颜色，放在最后 */
+._dark {
+	color: #33373d !important;
+}
+._gray {
+	color: #9c9c9c !important;
+}
+._blue {
+	color: #4284ed !important;
+}
+._green {
+	color: #7ed321 !important;
+}
+._orange {
+	color: #f0643a !important;
+}
+._yellow {
+	color: #ffb52a !important;
+}
+._purple {
+	color: #a091ff !important;
+}
+._red {
+	color: #ff0000 !important;
+}
+._white {
+	color: #ffffff !important;
+}
+._bg-grey{
+  background: #f0f2f5;
+}
+._bg-yellow{
+	background: #ffc843 !important;
+}
+
+

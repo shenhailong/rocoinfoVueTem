@@ -1,0 +1,125 @@
+/* 标题栏 */
+.content-block-title{
+  padding: px2rem(22px) px2rem(30px);
+  min-height: px2rem(90px);
+  @include font-dpr(30px);
+  color: #333333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // flex-wrap: wrap;
+  background: #ffffff;
+  &._flex-align-start{
+    align-items: flex-start;
+    .title{
+      margin-top: px2rem(9px);
+    }
+  }
+  &._flex-end{
+    justify-content: flex-end;
+  }
+  &._flex-start{
+    justify-content: flex-start;
+  }
+  &._flex-between{
+    justify-content: flex-start;
+  }
+  &._border{
+    border-bottom: 1px solid $color-border-light;
+  }
+  .item-left{
+    display: flex;
+    align-items: center;
+  }
+  .item-right{
+    display: flex;
+    align-items: center;
+  }
+  .text{
+    @include font-dpr(26px);
+  }
+  .links{
+    .text{
+      display: inline-block;
+      color: #666666;
+      @include font-dpr(22px);
+      @include lh-dpr(40px);
+      vertical-align: top;
+    }
+  }
+  .svg-triangle{
+    fill: #666666;
+  }
+  .svg-arrow{
+    fill: #999999;
+    width: px2rem(16px);
+    height: px2rem(28px);
+    margin-left: px2rem(8px);
+  }
+  .title{
+    color: #333333;
+    white-space: nowrap;
+    margin-right: px2rem(40px);
+    @include lh-dpr(42px);
+  }
+  .tag + .text{
+    margin-left: px2rem(20px);
+  }
+  .text + .tag{
+    margin-left: px2rem(20px);
+  }
+  .tag + .tag{
+    margin-left: px2rem(40px);
+  }
+
+  .mark{
+    display: inline-block;
+    color: #999999;
+    @include font-dpr(22px);
+    @include lh-dpr(42px);
+    .item{
+      margin-left: px2rem(20px);
+      margin-right: px2rem(20px);
+
+      &:first-child{
+        margin-left: 0;
+      }
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+  }
+  .state-active{
+    @include lh-dpr(50px);
+    display: flex;
+    align-items: flex-start;
+    a{
+      text-decoration: underline;
+    }
+    .item{
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: px2rem(10px);
+      // white-space: nowrap;
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+    .tag{
+      margin-top: px2rem(10px);
+      flex: 0 0 px2rem(146px);
+
+    }
+    .text{
+      // max-width: px2rem(425px);
+    }
+  }
+}
+.content-block-title-box{
+  background: #ffffff;
+  padding: 0 px2rem(30px);
+  .content-block-title{
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

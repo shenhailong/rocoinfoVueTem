@@ -1,0 +1,39 @@
+/* 公用样式 */
+@import "utilities/variables.scss";
+@import "utilities/reset.scss";
+@import "utilities/mixins.scss";
+@import "utilities/functions.scss";
+@import "utilities/animations.scss";
+
+/* 组件样式 */
+@import "components/search.scss";
+@import "components/steps.scss";
+@import "components/bar.scss";
+@import "components/list.scss";
+@import "components/tab.scss";
+@import "components/modal.scss";
+@import "components/flex.scss";
+@import "components/swiper.scss";
+@import "components/form.scss";
+
+/* 元素样式 */
+@import "elements/button.scss";
+@import "elements/icon.scss";
+@import "elements/other.scss";
+@import "elements/title-bar.scss";
+@import "elements/tag.scss";
+@import "elements/loading.scss";
+@import "elements/svg.scss";
+
+/* 页面单独样式 */
+@import "page/layout.scss";
+@import "page/index.scss";
+
+/* 基础样式 放在最后 */
+@import "elements/colors.scss";
+@import "base/helpers.scss";
+
+
+
+
+

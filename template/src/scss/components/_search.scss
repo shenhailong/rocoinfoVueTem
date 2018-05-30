@@ -1,0 +1,85 @@
+//== set search.scss
+//
+//##
+.search{
+	width: 100%;
+	@include font-dpr(26px);
+	display: inline-block;
+  position: relative;
+  .svg-search{
+    width: px2rem(34px);
+    height: px2rem(34px);
+  }
+	.search-input{
+		margin-right: 0;
+		position: relative;
+    background: $bg-primary;
+    &._radius{
+      border-radius: px2rem(8px);
+    }
+		label + input {
+		    padding-left: px2rem(54px);
+		}
+		input{
+			width: 100%;
+			line-height: px2rem(58px);
+      padding-left: px2rem(74px);
+			background: transparent;
+			border: none;
+			color: #333333;
+		}
+	}
+	.search-cancel{
+		color: #e2513c;
+		opacity: 0;
+		display: none;
+	}
+	.search-icon{
+    height: 100%;
+		cursor: pointer;
+		position: absolute;
+		top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	}
+	.search-icon-front{
+    width: px2rem(74px);
+    height: 100%;
+		position: absolute;
+		top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .svg-search{
+    fill: #999999;
+  }
+	&.search-active {
+		.search-cancel{
+			display: inline-block;
+			opacity: 1;
+		}
+		.search-input {
+			// margin-right: .5rem;
+		}
+		.search-icon{
+			display: none;
+		}
+	}
+}
+.list-search-result{
+	width: 100%;
+	background: #ffffff;
+	.item{
+    color: $color-text;
+    @include font-dpr(26px);
+		border-bottom: 1px solid $color-border-light;
+    padding: px2rem(24px) px2rem(30px);
+    &:last-child{
+			border-bottom: 0;
+		}
+	}
+}

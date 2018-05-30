@@ -1,0 +1,200 @@
+.swiper-container {
+  width: 100%;
+}
+
+.swiper-slide {
+  // text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-container-banner{
+  position: relative;
+  .swiper-slide {
+    height: px2rem(400px);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% auto;
+    iframe,img {
+      width: 100%;
+      height: px2rem(400px);
+    }
+    .swiper-lazy{
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+  .swiper-pagination-bullets,
+  .swiper-pagination-fraction{
+    bottom: px2rem(24px) !important;
+  }
+  .swiper-pagination {
+    // padding-right: px2rem(20px);
+  }
+  .swiper-pagination-bullet {
+    width: px2rem(8px);
+    height: px2rem(8px);
+    margin: 0 px2rem(10px) !important;
+    text-align: center;
+    color: #ffffff;
+    opacity: 1;
+    background: #999999;
+  }
+  .swiper-pagination-bullet-active {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 1);
+  }
+  .slide0 {
+    background-image: url('../images/material/banner01.jpg');
+  }
+  .slide1 {
+    background-image: url('../images/material/banner02.jpg');
+  }
+}
+
+.swiper-container-sale,
+.swiper-container-focus {
+  background: #ffffff;
+  padding-left: px2rem(30px);
+
+  .item-title{
+    @include lh-dpr(44px);
+    margin-top: px2rem(4px);
+    font-family: PingFangSC-Light;
+  }
+  .item-price{
+    @include lh-dpr(36px);
+    &._original{
+      @include font-dpr(22px);
+    }
+  }
+}
+.swiper-container-focus {
+  margin-bottom: px2rem(20px);
+  .swiper-slide {
+    width: 20%;
+    cursor: pointer;
+    margin-right: px2rem(22px);
+  }
+  .item-goods {
+    width: px2rem(130px);
+  }
+}
+.swiper-container-sale{
+  padding-bottom: px2rem(60px);
+  .swiper-slide {
+    width: 28%;
+    cursor: pointer;
+    margin-right: px2rem(30px);
+  }
+  .item-goods {
+    width: px2rem(200px);
+  }
+  .item-media {
+    margin-bottom: px2rem(8px);
+    img {
+      width: px2rem(200px);
+      height: px2rem(200px);
+    }
+  }
+  .swiper-slide.slide-more{
+    width: 14%;
+  }
+  .slide-more{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: px2rem(80px);
+    height: px2rem(292px);
+    @include font-dpr(28px);
+    background: $color-primary;
+    margin-right: 0 !important;
+    color: #ffffff;
+    .item-more{
+      width: px2rem(20px);
+    }
+  }
+}
+
+.swiper-container-details{
+  .swiper-slide {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    height: px2rem(750px);
+    img {
+      max-height: px2rem(716px);
+    }
+  }
+  .pagination{
+    position: absolute;
+    right: px2rem(30px) !important;
+    bottom: px2rem(20px) !important;
+    left: auto !important;
+    z-index: 1;
+    background: #dbdbdb;
+    width: px2rem(80px) !important;
+    // height: px2rem(40px);
+    @include lh-dpr(40px);
+    @include font-dpr(26px);
+    text-align: center;
+    color: #ffffff;
+    border-radius: px2rem(40px);
+  }
+  .icon-play{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: px2rem(-66px);
+    margin-left: px2rem(-66px);
+    z-index: 2;
+  }
+}
+
+.swiper-container-evaluation {
+  overflow: visible !important;
+  margin-top: px2rem(122px);
+  .swiper-slide {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    height: px2rem(750px);
+    img {
+      width: px2rem(750px);
+      height: px2rem(750px);
+    }
+  }
+  .pagination{
+    position: absolute;
+    right: 44% !important;
+    top: px2rem(-80px) !important;
+    left: auto !important;
+    z-index: 1;
+    @include font-dpr(30px);
+    text-align: center;
+    color: #ffffff;
+  }
+  .icon-play{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: px2rem(-66px);
+    margin-left: px2rem(-66px);
+    z-index: 1;
+  }
+}
+
+.swiper-note-canvas{
+  position:absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}

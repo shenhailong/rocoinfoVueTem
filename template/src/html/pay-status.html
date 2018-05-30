@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="<%= htmlWebpackPlugin.options.inject_keywords %>" />
+    <meta name="description" content="<%= htmlWebpackPlugin.options.inject_description %>" />
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <title>支付成功</title>
+
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../static/vendor/swiper/css/swiper.min.css" />
+    <!-- 引入组件库 -->
+    <script src="../../static/libs/flexible.js"></script>
+    <script src="../../static/vendor/swiper/js/swiper.min.js"></script>
+  </head>
+  <body>
+  <!--svg 图标集合-->
+  <div class="disN">
+    <?xml version="1.0" standalone="no"?>
+    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <symbol id="svg-arrow" viewBox="0 0 438 750">
+        <desc>svg 箭头</desc>
+        <path d="M430.696401,395.102744 C431.18292,394.129707 432.034327,393.278299 432.399216,392.305262 C440.913291,374.547334 438.115809,352.653997 423.033733,338.423328 L79.30835,13.307281 C60.577384,-4.450647 31.02138,-3.59924 13.263452,15.131726 C-4.494476,33.862692 -3.643069,63.418696 15.087897,81.176624 L323.540682,372.966148 L16.304193,669.012709 C-2.305143,686.892267 -2.791662,716.448271 15.087897,735.057607 C24.210121,744.544719 36.494715,749.409905 48.65768,749.409905 C60.334126,749.409905 72.010572,745.031238 81.011166,736.273903 L421.574178,407.995485 C422.182326,407.387337 422.425586,406.4143 423.155363,405.806151 C423.641882,405.319632 424.1284,404.954743 424.736548,404.468225 C427.53403,401.670745 428.871956,398.265115 430.696401,395.102744 L430.696401,395.102744 L430.696401,395.102744 Z"></path>
+      </symbol>
+      <symbol id="svg-pay-fail" viewBox="0 0 168 168">
+        <desc>svg 支付失败</desc>
+        <path d="M115.9,7 C105.8,2.8 94.9,0.7 84,0.7 C38,0.7 0.7,38 0.7,84 C0.7,130 38,167.3 84,167.3 C130,167.3 167.3,130 167.3,84 C167.3,72.9 165.1,62.1 161,52.1 C160.1,50 157.6,49 155.5,50 C153.5,50.9 152.5,53.3 153.3,55.3 C157.1,64.4 159,74.2 159,84 C159,125.4 125.4,159 84,159 C42.6,159 9,125.4 9,84 C9,42.6 42.6,9 84,9 C94,9 103.7,10.9 112.7,14.7 C114.8,15.5 117.3,14.5 118.1,12.3 C118.9,10.2 117.9,7.9 115.9,7 Z M84,78.1 L63.4,57.5 C61.8,55.9 59.1,55.9 57.5,57.5 C55.9,59.1 55.9,61.7 57.5,63.4 C57.5,63.4 57.5,63.4 57.5,63.4 L78.1,84 L57.5,104.6 C55.9,106.2 55.9,108.9 57.5,110.5 C59.1,112.1 61.7,112.1 63.4,110.5 C63.4,110.5 63.4,110.5 63.4,110.5 L84,89.9 L104.6,110.5 C106.2,112.1 108.9,112.1 110.5,110.5 C112.1,108.9 112.1,106.3 110.5,104.6 C110.5,104.6 110.5,104.6 110.5,104.6 L89.9,84 L110.5,63.4 C112.1,61.8 112.1,59.1 110.5,57.5 C108.9,55.9 106.3,55.9 104.6,57.5 C104.6,57.5 104.6,57.5 104.6,57.5 L84,78.1 Z" id="Shape"></path>
+      </symbol>
+      <symbol id="svg-pay-success" viewBox="0 0 200 200">
+        <desc>svg 支付成功</desc>
+        <path d="M92.1,145.9c1.9,1.8,4.9,1.7,6.7-0.2l84.3-95c1.7-1.9,1.5-4.8-0.4-6.5c-1.9-1.7-4.8-1.5-6.5,0.4l-84.3,95l6.7-0.2L51.5,93.2
+        c-1.8-1.8-4.7-1.7-6.5,0.1s-1.7,4.7,0.1,6.5L92.1,145.9z M190.8,100c0,50.2-40.7,90.8-90.8,90.8S9.2,150.2,9.2,100
+        C9.2,49.9,49.9,9.2,100,9.2c19.9,0,38.8,6.4,54.4,18.1c2,1.5,4.9,1.1,6.4-0.9c1.5-2,1.1-4.9-0.9-6.4c-17.2-12.9-38-20-60-20
+        C44.8,0,0,44.8,0,100c0,55.2,44.8,100,100,100s100-44.8,100-100c0-8.1-1-16-2.8-23.7c-0.6-2.5-3.1-4-5.6-3.4c-2.5,0.6-4,3.1-3.4,5.6
+        C189.9,85.4,190.8,92.7,190.8,100z"/>
+      </symbol>
+    </svg>
+  </div>
+  <div class="wrap wrap-pay-status">
+    <div class="bar bar-nav _border bar-absolute-top">
+      <a href="http://www.baidu.com" class="bar-item item-arrow">
+        <svg class="svg-arrow _left">
+          <use xlink:href="#svg-arrow" />
+        </svg>
+      </a>
+      <div class="bar-item">支付成功</div>
+    </div>
+    <!--/.bar-nav-->
+    <div class="content">
+      <div class="tips-box">
+        <div class="tips-no-result">
+          <div class="icon-area">
+            <svg class="svg-pay-fail">
+              <use xlink:href="#svg-pay-fail" />
+            </svg>
+            <svg class="svg-pay-success">
+              <use xlink:href="#svg-pay-success" />
+            </svg>
+            <span class="text">支付失败</span>
+          </div>
+          <p>请在<em>00:27:35</em>内完成付款</p>
+        </div>
+        <!-- /.tips-no-result -->
+      </div>
+      <!-- /.tips-box -->
+      <div class="space-20"></div>
+      <div class="content-block-title _border">
+        <div class="title">
+          支付方式
+        </div>
+        <a href="javascript:;" class="item-right" >
+          <span class="text">银联支付</span>
+        </a>
+      </div>
+      <!-- /.content-block-title -->
+      <div class="content-block-title _border">
+        <div class="title">
+          支付金额
+        </div>
+        <a href="javascript:;" class="item-right" >
+          <span class="text text-primary">840.00元</span>
+        </a>
+      </div>
+      <!-- /.content-block-title -->
+      <div class="space-20"></div>
+      <div class="button-line _flex-align-center">
+        <button class="btn-normal btn-primary _solid btn-xl">重新支付</button>
+        <button class="btn-normal btn-primary btn-xl">查看订单</button>
+      </div>
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.wrap -->
+  </body>
+</html>

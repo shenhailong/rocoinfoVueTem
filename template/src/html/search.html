@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="keywords" content="<%= htmlWebpackPlugin.options.inject_keywords %>" />
+  <meta name="description" content="<%= htmlWebpackPlugin.options.inject_description %>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no,viewport-fit=cover">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="yes" name="apple-touch-fullscreen">
+  <meta content="telephone=no,email=no" name="format-detection">
+  <title>搜索</title>
+
+  <!-- 引入样式 -->
+  <link rel="stylesheet" href="../../static/css/style.css">
+  <link rel="stylesheet" type="text/css" href="../../static/vendor/swiper/css/swiper.min.css" />
+  <!-- 引入组件库 -->
+  <script src="../../static/libs/flexible.js"></script>
+  <script src="../../static/vendor/swiper/js/swiper.min.js"></script>
+  <script>
+
+  </script>
+</head>
+
+<body>
+  <!--svg 图标集合-->
+  <div class="disN">
+    <?xml version="1.0" standalone="no"?>
+    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <symbol id="svg-search" viewBox="0 0 889 900">
+        <desc>svg 搜索</desc>
+        <path d="M880.18836,848.49498 L697.640767,665.949434 C760.616054,595.352563 798.892822,502.248072 798.892822,400.200908 C798.892822,179.627257 620.086437,0.820872 399.516879,0.820872 C178.947321,0.820872 0.140936,179.627257 0.140936,400.200908 C0.140936,620.768419 178.947321,799.575828 399.516879,799.575828 C496.474118,799.575828 585.358494,765.020824 654.53604,707.560135 L837.8286,890.852694 C849.526013,902.558294 868.490947,902.558294 880.18836,890.852694 C891.885773,879.159374 891.885773,860.189324 880.18836,848.49498 Z M60.047328,400.200908 C60.047328,212.713816 212.031835,60.727263 399.51688,60.727263 C586.999879,60.727263 738.986432,212.713816 738.986432,400.200908 C738.986432,587.68186 586.999879,739.668413 399.51688,739.668413 C212.031834,739.669436 60.047328,587.682883 60.047328,400.200908 Z"></path>
+      </symbol>
+      <symbol id="svg-arrow" viewBox="0 0 438 750">
+        <desc>svg 箭头</desc>
+        <path d="M430.696401,395.102744 C431.18292,394.129707 432.034327,393.278299 432.399216,392.305262 C440.913291,374.547334 438.115809,352.653997 423.033733,338.423328 L79.30835,13.307281 C60.577384,-4.450647 31.02138,-3.59924 13.263452,15.131726 C-4.494476,33.862692 -3.643069,63.418696 15.087897,81.176624 L323.540682,372.966148 L16.304193,669.012709 C-2.305143,686.892267 -2.791662,716.448271 15.087897,735.057607 C24.210121,744.544719 36.494715,749.409905 48.65768,749.409905 C60.334126,749.409905 72.010572,745.031238 81.011166,736.273903 L421.574178,407.995485 C422.182326,407.387337 422.425586,406.4143 423.155363,405.806151 C423.641882,405.319632 424.1284,404.954743 424.736548,404.468225 C427.53403,401.670745 428.871956,398.265115 430.696401,395.102744 L430.696401,395.102744 L430.696401,395.102744 Z"></path>
+      </symbol>
+      <symbol id="svg-return-top" viewBox="0 0 1040 1030">
+        <desc>svg 返回顶部</desc>
+        <path d="M192.8224,704 L288.9824,704 C297.47587,704.069586 305.639397,700.715303 311.630317,694.694277 C317.621237,688.673252 320.934558,680.493014 320.8224,672 C320.8224,654.848 306.5504,640 288.9824,640 L32.6944,640 C24.2009301,639.930414 16.0374033,643.284697 10.0464829,649.305723 C4.05556262,655.326748 0.742241787,663.506986 0.8544,672 C0.8544,689.152 15.1264,704 32.6944,704 L128.8544,704 L128.8544,992.576 C128.8544,1009.408 143.1904,1024 160.8544,1024 C178.0064,1024 192.8544,1009.92 192.8544,992.576 L192.8544,704 L192.8224,704 Z M970.9344,503.36 C979.213292,511.525444 991.270098,514.55725 1002.42661,511.279036 C1013.58313,508.000821 1022.0833,498.928583 1024.62895,487.582472 C1027.17459,476.236362 1023.36502,464.402276 1014.6784,456.672 L536.6624,8.672 C524.391408,-2.83727732 505.303863,-2.87922797 492.9824,8.576 L10.9984,456.576 C2.36731407,464.293069 -1.42213306,476.070458 1.08936604,487.372721 C3.60086515,498.674985 12.0215532,507.739135 23.1086424,511.074587 C34.1957317,514.41004 46.2197976,511.496513 54.5504,503.456 L514.6784,75.776 L970.9024,503.36 L970.9344,503.36 Z M512.8224,1024 C424.4704,1024 352.8224,938.048 352.8224,832 C352.8224,725.952 424.4704,640 512.8224,640 C601.1744,640 672.8224,725.952 672.8224,832 C672.8224,938.048 601.1744,1024 512.8224,1024 Z M512.8224,960 C562.9984,960 608.8224,905.024 608.8224,832 C608.8224,758.976 562.9984,704 512.8224,704 C462.6464,704 416.8224,758.976 416.8224,832 C416.8224,905.024 462.6464,960 512.8224,960 Z M768.8224,640 C786.495512,640 800.8224,654.326888 800.8224,672 L800.8224,992 C800.8224,1009.67311 786.495512,1024 768.8224,1024 C751.149288,1024 736.8224,1009.67311 736.8224,992 L736.8224,672 C736.8224,654.326888 751.149288,640 768.8224,640 Z"></path>
+        <path d="M736.8224,672.096 L736.8224,831.904 C736.8224,849.312 751.1264,864 768.7584,864 L912.6624,864 C953.314429,864.971839 991.301348,843.83986 1011.91309,808.787216 C1032.52484,773.734572 1032.52484,730.265428 1011.91309,695.212784 C991.301348,660.16014 953.314429,639.028161 912.6624,640 L768.7584,640 C760.247442,639.956712 752.074863,643.329525 746.071685,649.362778 C740.068508,655.396032 736.736579,663.585364 736.8224,672.096 L736.8224,672.096 Z M800.8224,704 L912.8224,704 C939.3504,704 960.8224,725.312 960.8224,752 C960.8224,778.496 939.8944,800 912.8224,800 L800.8224,800 L800.8224,704 Z"></path>
+      </symbol>
+      <symbol id="svg-member" viewBox="0 0 178 181">
+        <desc>svg 加V</desc>
+        <path d="M177.4,0.8 L177.4,7.3 C170.5,8.2 165.7,10 162.9,12.7 C160.1,15.5 157.2,20.7 154.1,28.4 L95.1,180.3 L88.1,180.3 L21.8,25.3 C18.5,17.9 15.7,13.3 13.3,11.5 C10.9,9.7 6.5,8.3 0.1,7.2 L0.1,0.8 L87.1,0.8 L87.1,7.2 C78.1,7.2 72.2,7.8 69.2,9 C66.3,10.2 64.8,13.2 64.8,18.1 C64.8,20 65.9,23.7 68,29.1 C70.2,34.5 71.7,38.3 72.5,40.4 L106.4,122.2 L139.4,37 C140.9,33.2 142.2,29.8 143.1,26.9 C144,24 144.5,21.4 144.5,19.1 C144.5,11.2 137.1,7.2 122.2,7.2 L122.2,0.8 L177.4,0.8 Z"
+          id="Shape"></path>
+      </symbol>
+      <symbol id="svg-member-circle" viewBox="0 0 13 13">
+        <desc>svg 加V带背景</desc>
+        <circle cx="6.5" cy="6.5" r="6.5"></circle>
+        <g id="V" transform="translate(2.000000, 3.000000)" fill="#FFFFFF">
+          <path d="M9,0 L9,0.3 C8.7,0.3 8.4,0.4 8.3,0.6 C8.1,0.7 8,1 7.8,1.4 L4.8,9.1 L4.5,9.1 L1.1,1.2 C0.9,0.9 0.8,0.6 0.7,0.5 C0.6,0.5 0.3,0.4 0,0.3 L0,0 L4.4,0 L4.4,0.3 C3.9,0.3 3.6,0.3 3.5,0.4 C3.4,0.5 3.3,0.6 3.3,0.9 C3.3,1 3.4,1.2 3.5,1.5 C3.6,1.7 3.6,1.9 3.7,2 L5.4,6.1 L7.1,1.8 C7.2,1.6 7.2,1.4 7.3,1.3 C7.4,1.2 7.3,1 7.3,0.9 C7.3,0.5 6.9,0.3 6.2,0.3 L6.2,0 L9,0 Z"
+            id="Shape"></path>
+        </g>
+      </symbol>
+      <symbol id="svg-member-grade" viewBox="0 0 7 8">
+        <desc>svg 会员等级</desc>
+        <g transform="translate(-203.000000, -169.000000)">
+          <g transform="translate(203.000000, 169.000000)">
+            <path d="M4.2,6.5c0,0.1-0.1,0.1-0.1,0.2C4,6.8,3.9,6.9,3.8,6.9C3.8,7,3.7,7.1,3.6,7.1
+              C3.5,7.2,3.3,7.2,3.2,7.2S3,7.2,2.9,7.1S2.7,7,2.6,6.9C2.5,6.8,2.5,6.8,2.4,6.7c0-0.1-0.1-0.2-0.1-0.2c0,0,0-0.1-0.1-0.2
+              c0-0.1-0.1-0.3-0.1-0.5C2,5.5,2,5.3,1.9,5.1C1.8,4.8,1.8,4.6,1.7,4.4c-0.2-0.6-0.4-1.2-0.6-2C1,2.1,1,2,0.9,1.8S0.8,1.6,0.7,1.6
+              c-0.1,0-0.1-0.1-0.2,0c-0.1,0-0.2,0-0.3,0.1c0-0.2,0-0.4,0-0.5s0.1-0.3,0.2-0.5s0.2-0.3,0.3-0.3s0.3-0.2,0.4-0.2
+              C1.4,0,1.6,0,1.9,0.1s0.4,0.4,0.5,0.7c0,0.1,0.1,0.3,0.2,0.5c0.1,0.3,0.2,0.6,0.3,1C2.9,2.7,3,3.1,3.1,3.5
+              c0.1,0.4,0.3,0.8,0.4,1.2l1.4-4c0.1-0.2,0.2-0.3,0.3-0.4s0.3-0.1,0.5-0.1c0.2,0,0.4,0,0.6,0c-0.4,1.1-0.7,2.2-1,3.1
+              C5.1,3.7,5,4.1,4.9,4.4c-0.1,0.4-0.2,0.7-0.3,1C4.4,5.7,4.3,6,4.3,6.2C4.2,6.4,4.2,6.5,4.2,6.5z" />
+          </g>
+        </g>
+      </symbol>
+    </svg>
+  </div>
+  <div class="wrap wrap-search">
+    <!--/.bar-tab-->
+    <div class="bar-box-top bar-absolute-top">
+      <div class=" bar bar-search _border ">
+        <a href="javascript:;" class="bar-item item-arrow">
+          <svg class="svg-arrow _left">
+            <use xlink:href="#svg-arrow" />
+          </svg>
+        </a>
+        <div class="item-search">
+          <div class="search clearfix" id="search">
+            <div class="search-input _radius">
+              <input data-handle="_searchinput" placeholder="搜索商品名称">
+              <label class="search-icon-front">
+                <svg class="svg-search">
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-search"></use>
+                </svg>
+              </label>
+            </div>
+          </div>
+        </div>
+        <a href="javascript:;" class="item-search-btn">搜索</a>
+      </div>
+      <!--/.bar-search-->
+      <div class="main-tab">
+        <nav class="main-tab-links">
+          <div class="item _active">
+            商品
+          </div>
+          <div class="item">
+            话题
+          </div>
+          <div class="item">
+            用户
+          </div>
+        </nav>
+      </div>
+      <!-- /.main-tab -->
+    </div>
+    <!-- /.bar-box-top -->
+    <div class="content">
+      <div class="list-user">
+        <div class=" item-goods item-horizontal">
+          <div class="author-column">
+            <div class="author-avatar">
+              <img src="../../static/images/m/avatar.jpg" alt="avatar">
+            </div>
+          </div>
+          <!-- /.author -->
+          <div class="item-inner">
+            <div class="item-title _ellipsis">IE呼吸顺畅精油 IE呼吸顺畅精油</div>
+            <div class="item-subtitle _ellipsis">
+              薄荷、尤加利、松香/薄荷、尤加利、松香/薄荷、尤加利、松香/薄荷、尤加利、松香/薄荷、尤加利、松香
+            </div>
+            <!-- /.title -->
+          </div>
+          <!-- /.item-inner -->
+          <div class="item-align-center">
+            <a href="javascript:;" class="btn-normal btn-sm">取消关注</a>
+          </div>
+        </div>
+        <!--/.item-goods 水平摆放商品-->
+        <div class=" item-goods item-horizontal">
+          <div class="author-column">
+            <div class="author-avatar">
+              <img src="../../static/images/m/avatar.jpg" alt="avatar">
+            </div>
+          </div>
+          <!-- /.author -->
+          <div class="item-inner">
+            <div class="item-title _ellipsis">IE呼吸顺畅精油 IE呼吸顺畅精油</div>
+            <div class="item-subtitle _ellipsis">
+              薄荷、尤加利、松香/薄荷、尤加利、松香/薄荷、尤加利、松香/薄荷、尤加利、松香/薄荷、尤加利、松香
+            </div>
+            <!-- /.title -->
+          </div>
+          <!-- /.item-inner -->
+          <div class="item-align-center">
+            <a href="javascript:;" class="btn-normal btn-primary btn-sm">关注</a>
+          </div>
+        </div>
+        <!--/.item-goods 水平摆放商品-->
+      </div>
+      <div class="list-topic">
+        <div class=" item-goods item-horizontal">
+          <div class="item-media">
+            <img src="../../static/images/m/img324x324.jpg">
+          </div>
+          <div class="item-inner">
+            <div class="item-title _ellipsis">IE呼吸顺畅精油 IE呼吸顺畅精油</div>
+            <div class="item-subtitle _ellipsis3">
+              薄荷、尤加利、松香/薄荷、尤加利、松香/薄荷、尤加利、松香/薄荷、尤加利、松香/薄荷、尤加利、松香 薄荷、尤加利、松香/薄荷、尤加利、松香/薄荷、尤加利、松香/薄荷、尤加利、松香/薄荷、尤加利、松香 薄荷、尤加利、松香
+            </div>
+            <!-- /.title -->
+            <div class="author-column">
+              <div class="author-avatar">
+                <img src="../../static/images/m/avatar.jpg" alt="avatar">
+                <svg class="svg-member-circle">
+                  <use xlink:href="#svg-member-circle" />
+                </svg>
+              </div>
+              <div class="text">IN Essence</div>
+            </div>
+            <!-- /.author -->
+          </div>
+          <!-- /.item-inner -->
+        </div>
+        <!--/.item-goods 水平摆放商品-->
+        <div class=" item-goods item-horizontal">
+          <div class="item-media">
+            <img src="../../static/images/m/img324x324.jpg">
+          </div>
+          <div class="item-inner">
+            <div class="item-title _ellipsis">IE呼吸顺畅精油 25ML</div>
+            <div class="item-subtitle _ellipsis3">
+              薄荷、尤加利、松香
+            </div>
+            <!-- /.title -->
+            <div class="author-column-box item-bottom">
+              <div class="author-column">
+                <div class="author-avatar">
+                  <img src="../../static/images/m/avatar.jpg" alt="avatar">
+                  <div class="member-grade">
+                    <svg class="svg-member-grade">
+                      <use xlink:href="#svg-member-grade"></use>
+                    </svg>
+                    <span class="num">1</span>
+                  </div>
+                </div>
+                <div class="text _ellipsis">IN Essence Essence Essence</div>
+              </div>
+              <!-- /.author -->
+              <div class="tag tag-primary">精选</div>
+            </div>
+            <!-- /.author-column-box -->
+          </div>
+          <!-- /.item-inner -->
+        </div>
+        <!--/.item-goods 水平摆放商品-->
+      </div>
+
+      <div class="tips-box">
+        <div class="tips-no-result">
+          <div class="icon-area">
+            <i class="icon icon-no-result">icon</i>
+          </div>
+          <p>很抱歉，没有找到</p>
+          <p>“红烧肉”的相关商品</p>
+        </div>
+        <!-- /.tips-no-result -->
+      </div>
+      <!-- /.tips-box -->
+      <div class="list-product list-column2">
+        <div class="item-goods">
+          <div class="item-media">
+            <img src="../../static/images/m/img348x348.jpg">
+          </div>
+          <div class="item-inner">
+            <div class="item-title _ellipsis2">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+            <div class="item-subtitle _ellipsis">
+              平抚心情，净化空气
+            </div>
+            <div class="price-area">
+              <div class="item-price">
+                <em>¥</em>118</div>
+              <div class="item-price-original">
+                <em>¥</em>118</div>
+              <span class="tag tag-sm tag-primary">限时购</span>
+            </div>
+          </div>
+        </div>
+        <!--/.item-goods 商品-->
+        <div class="item-goods">
+          <div class="item-media">
+            <img src="../../static/images/m/img348x348.jpg">
+          </div>
+          <div class="item-inner">
+            <div class="item-title _ellipsis2">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+            <div class="item-subtitle _ellipsis">
+              平抚心情，净化空气
+            </div>
+            <div class="price-area">
+              <div class="item-price">
+                <em>¥</em>118</div>
+              <span class="tag tag-sm tag-primary">满赠</span>
+            </div>
+          </div>
+        </div>
+        <!--/.item-goods 商品-->
+        <div class="item-goods">
+          <div class="item-media">
+            <img src="../../static/images/m/img348x348.jpg">
+          </div>
+          <div class="item-inner">
+            <div class="item-title _ellipsis2">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+            <div class="item-subtitle _ellipsis">
+              平抚心情，净化空气
+            </div>
+            <div class="price-area">
+              <div class="item-price">
+                <em>¥</em>118</div>
+              <span class="tag tag-sm tag-primary">满赠</span>
+            </div>
+          </div>
+        </div>
+        <!--/.item-goods 商品-->
+        <div class="item-goods">
+          <div class="item-media">
+            <img src="../../static/images/m/img348x348.jpg">
+          </div>
+          <div class="item-inner">
+            <div class="item-title _ellipsis2">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+            <div class="item-subtitle _ellipsis">
+              平抚心情，净化空气
+            </div>
+            <div class="price-area">
+              <div class="item-price">
+                <em>¥</em>118</div>
+              <span class="tag tag-sm tag-primary">满赠</span>
+            </div>
+          </div>
+        </div>
+        <!--/.item-goods 商品-->
+      </div>
+      <section class="waterfal-flow list-hobby">
+        <aside class="item aside-1">
+          <div class="list-banner">
+            <img src="../../static/images/img-hobby.jpg" alt="猜你喜欢">
+          </div>
+          <div class="item-goods">
+            <div class="item-media">
+              <img src="../../static/images/m/img348x348.jpg">
+            </div>
+            <div class="item-inner">
+              <div class="item-title _ellipsis2">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+              <div class="item-subtitle _ellipsis">
+                平抚心情，净化空气
+              </div>
+              <div class="price-area">
+                <div class="item-price">
+                  <em>¥</em>118</div>
+              </div>
+            </div>
+          </div>
+          <!--/.item-goods 商品-->
+          <div class="item-goods">
+            <div class="item-media">
+              <img src="../../static/images/m/img348x348.jpg">
+            </div>
+            <div class="item-inner">
+              <div class="item-title _ellipsis2">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+              <div class="item-subtitle _ellipsis">
+                平抚心情，净化空气
+              </div>
+              <div class="price-area">
+                <div class="item-price">
+                  <em>¥</em>118</div>
+              </div>
+            </div>
+          </div>
+          <!--/.item-goods 商品-->
+        </aside>
+        <aside class="item aside-2">
+          <div class="item-goods">
+            <div class="item-media">
+              <img src="../../static/images/m/img348x348.jpg">
+            </div>
+            <div class="item-inner">
+              <div class="item-title _ellipsis2">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+              <div class="item-subtitle _ellipsis">
+                平抚心情，净化空气
+              </div>
+              <div class="price-area">
+                <div class="item-price">
+                  <em>¥</em>118</div>
+              </div>
+            </div>
+          </div>
+          <!--/.item-goods 商品-->
+          <div class="item-goods">
+            <div class="item-media">
+              <img src="../../static/images/m/img348x348.jpg">
+            </div>
+            <div class="item-inner">
+              <div class="item-title _ellipsis2">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+              <div class="item-subtitle _ellipsis">
+                平抚心情，净化空气
+              </div>
+              <div class="price-area">
+                <div class="item-price">
+                  <em>¥</em>118</div>
+              </div>
+            </div>
+          </div>
+          <!--/.item-goods 商品-->
+          <div class="item-goods">
+            <div class="item-media">
+              <img src="../../static/images/m/img348x348.jpg">
+            </div>
+            <div class="item-inner">
+              <div class="item-title _ellipsis2">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+              <div class="item-subtitle _ellipsis">
+                平抚心情，净化空气
+              </div>
+              <div class="price-area">
+                <div class="item-price">
+                  <em>¥</em>118</div>
+              </div>
+            </div>
+          </div>
+          <!--/.item-goods 商品-->
+          <a href="javascript:;" class="btn-normal btn-more">
+            查看更多
+            <svg class="svg-arrow">
+              <use xlink:href="#svg-arrow" />
+            </svg>
+          </a>
+        </aside>
+      </section>
+      <!--/.waterfal-flow-->
+      <img class="tips-nolist" src="../../static/images/img-footer.png" alt="加载到底图片">
+      <!--返回顶部按钮-->
+      <div class="float-window">
+        <a href="javascript:;" class="item">
+          <svg class="svg-icon svg-write">
+            <use xlink:href="#svg-write" />
+          </svg>
+        </a>
+        <a href="javascript:;" class="item return-top" id="returnTop">
+          <svg class="svg-icon svg-return-top">
+            <use xlink:href="#svg-return-top" />
+          </svg>
+        </a>
+      </div>
+      <!-- /.float-window -->
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.wrap -->
+</body>
+
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="<%= htmlWebpackPlugin.options.inject_keywords %>" />
+    <meta name="description" content="<%= htmlWebpackPlugin.options.inject_description %>" />
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <title>帖子内容</title>
+
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../static/vendor/swiper/css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../static/vendor/rocoui/css/rocoui-mobile.css" />
+    <!-- 引入组件库 -->
+    <script src="../../static/libs/flexible.js"></script>
+    <script src="../../static/vendor/swiper/js/swiper.min.js"></script>
+  </head>
+  <body>
+  <!--svg 图标集合-->
+  <div class="disN">
+    <?xml version="1.0" standalone="no"?>
+    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <symbol id="svg-arrow" viewBox="0 0 438 750">
+        <desc>svg 箭头</desc>
+        <path d="M430.696401,395.102744 C431.18292,394.129707 432.034327,393.278299 432.399216,392.305262 C440.913291,374.547334 438.115809,352.653997 423.033733,338.423328 L79.30835,13.307281 C60.577384,-4.450647 31.02138,-3.59924 13.263452,15.131726 C-4.494476,33.862692 -3.643069,63.418696 15.087897,81.176624 L323.540682,372.966148 L16.304193,669.012709 C-2.305143,686.892267 -2.791662,716.448271 15.087897,735.057607 C24.210121,744.544719 36.494715,749.409905 48.65768,749.409905 C60.334126,749.409905 72.010572,745.031238 81.011166,736.273903 L421.574178,407.995485 C422.182326,407.387337 422.425586,406.4143 423.155363,405.806151 C423.641882,405.319632 424.1284,404.954743 424.736548,404.468225 C427.53403,401.670745 428.871956,398.265115 430.696401,395.102744 L430.696401,395.102744 L430.696401,395.102744 Z"></path>
+      </symbol>
+      <symbol id="svg-cart" viewBox="0 0 19 14">
+        <desc>svg 购物车</desc>
+        <path d="M16.2,11.9H6c-1,0-1.2-0.5-1.3-0.9C3.6,5,2.9,1.8,2.9,1.4C2.7,1,2.6,0.8,2.4,0.8h-2
+          C0.2,0.8,0,0.6,0,0.4S0.2,0,0.4,0h2c0.2,0,0.9,0.1,1.2,1.3C3.8,1.9,4.4,5,5.5,10.8c0,0.1,0,0.2,0.5,0.2h10.2
+          c0.2,0,0.4,0.2,0.4,0.4C16.6,11.7,16.4,11.9,16.2,11.9z M15,9.5H4.9c-0.2,0-0.4-0.2-0.4-0.4c0-0.2,0.2-0.4,0.4-0.4H15
+          c0.7,0,0.9-0.6,0.9-0.6c0-0.2,1-3.9,1.3-4.8c0-0.1,0.1-0.3,0-0.3c-0.1-0.1-0.2-0.1-0.3-0.1c-4.8,0-8.4,0-10.8,0
+          c-0.9,0-0.9-0.8,0-0.8c2.4,0,6,0,10.9,0c0.1,0,0.6,0.1,0.9,0.5c0.1,0.2,0.2,0.5,0.1,1c-0.3,0.9-1.3,4.7-1.3,4.7
+          C16.6,8.7,16.1,9.5,15,9.5z"/>
+        <path d="M7,13c-0.6,0-1,0.4-1,1c0,0.6,0.4,1,1,1s1-0.4,1-1C8,13.4,7.6,13,7,13z M7,14.3
+          c-0.2,0-0.3-0.1-0.3-0.3c0-0.2,0.1-0.3,0.3-0.3c0.2,0,0.3,0.1,0.3,0.3C7.3,14.2,7.2,14.3,7,14.3z"/>
+        <path d="M14,13c-0.6,0-1,0.4-1,1c0,0.6,0.4,1,1,1c0.6,0,1-0.4,1-1C15,13.4,14.6,13,14,13z M14,14.3
+          c-0.2,0-0.3-0.1-0.3-0.3c0-0.2,0.1-0.3,0.3-0.3c0.2,0,0.3,0.1,0.3,0.3C14.3,14.2,14.2,14.3,14,14.3z"/>
+      </symbol>
+      <symbol id="svg-return-top" viewBox="0 0 1040 1030">
+        <desc>svg 返回顶部</desc>
+        <path d="M192.8224,704 L288.9824,704 C297.47587,704.069586 305.639397,700.715303 311.630317,694.694277 C317.621237,688.673252 320.934558,680.493014 320.8224,672 C320.8224,654.848 306.5504,640 288.9824,640 L32.6944,640 C24.2009301,639.930414 16.0374033,643.284697 10.0464829,649.305723 C4.05556262,655.326748 0.742241787,663.506986 0.8544,672 C0.8544,689.152 15.1264,704 32.6944,704 L128.8544,704 L128.8544,992.576 C128.8544,1009.408 143.1904,1024 160.8544,1024 C178.0064,1024 192.8544,1009.92 192.8544,992.576 L192.8544,704 L192.8224,704 Z M970.9344,503.36 C979.213292,511.525444 991.270098,514.55725 1002.42661,511.279036 C1013.58313,508.000821 1022.0833,498.928583 1024.62895,487.582472 C1027.17459,476.236362 1023.36502,464.402276 1014.6784,456.672 L536.6624,8.672 C524.391408,-2.83727732 505.303863,-2.87922797 492.9824,8.576 L10.9984,456.576 C2.36731407,464.293069 -1.42213306,476.070458 1.08936604,487.372721 C3.60086515,498.674985 12.0215532,507.739135 23.1086424,511.074587 C34.1957317,514.41004 46.2197976,511.496513 54.5504,503.456 L514.6784,75.776 L970.9024,503.36 L970.9344,503.36 Z M512.8224,1024 C424.4704,1024 352.8224,938.048 352.8224,832 C352.8224,725.952 424.4704,640 512.8224,640 C601.1744,640 672.8224,725.952 672.8224,832 C672.8224,938.048 601.1744,1024 512.8224,1024 Z M512.8224,960 C562.9984,960 608.8224,905.024 608.8224,832 C608.8224,758.976 562.9984,704 512.8224,704 C462.6464,704 416.8224,758.976 416.8224,832 C416.8224,905.024 462.6464,960 512.8224,960 Z M768.8224,640 C786.495512,640 800.8224,654.326888 800.8224,672 L800.8224,992 C800.8224,1009.67311 786.495512,1024 768.8224,1024 C751.149288,1024 736.8224,1009.67311 736.8224,992 L736.8224,672 C736.8224,654.326888 751.149288,640 768.8224,640 Z" ></path>
+        <path d="M736.8224,672.096 L736.8224,831.904 C736.8224,849.312 751.1264,864 768.7584,864 L912.6624,864 C953.314429,864.971839 991.301348,843.83986 1011.91309,808.787216 C1032.52484,773.734572 1032.52484,730.265428 1011.91309,695.212784 C991.301348,660.16014 953.314429,639.028161 912.6624,640 L768.7584,640 C760.247442,639.956712 752.074863,643.329525 746.071685,649.362778 C740.068508,655.396032 736.736579,663.585364 736.8224,672.096 L736.8224,672.096 Z M800.8224,704 L912.8224,704 C939.3504,704 960.8224,725.312 960.8224,752 C960.8224,778.496 939.8944,800 912.8224,800 L800.8224,800 L800.8224,704 Z" ></path>
+      </symbol>
+      <symbol id="svg-heart" viewBox="0 0 964 856">
+        <desc>svg 心</desc>
+        <path d="M689.068827,25.55798 C594.382304,25.55798 512.163745,73.872359 471.998976,144.198054 C431.835231,73.872359 349.616671,25.55798 254.954708,25.55798 C111.18735,25.55798 25.288981,149.218394 25.288981,268.777397 C25.288981,551.905756 441.159597,796.6192 458.865864,806.903428 C462.92839,809.267265 467.45038,810.442021 471.997952,810.442021 C476.545525,810.442021 481.068538,809.267265 485.13004,806.903428 C502.836307,796.620224 918.706923,551.905756 918.706923,268.777397 C918.708971,149.218394 832.811626,25.55798 689.068827,25.55798 L689.068827,25.55798 Z"></path>
+      </symbol>
+      <symbol id="svg-check" viewBox="0 0 172 121">
+        <desc>svg 对勾</desc>
+        <path d="M163.1,0 C160.6,0 158.3,1 156.7,2.7 L156.7,2.7 L60.8,98.7 L15.8,53.6 L15.8,53.6 C14.2,51.8 11.8,50.6 9.1,50.6 C4.2,50.6 0.2,54.6 0.2,59.5 C0.2,62.1 1.3,64.5 3.2,66.1 L3.2,66.1 L54.5,117.6 C54.5,117.6 54.5,117.6 54.5,117.6 C56.1,119.2 58.4,120.3 60.9,120.3 C63.4,120.3 65.6,119.3 67.3,117.6 L169.2,15.4 C170.9,13.8 172,11.5 172,8.9 C172,4 168,0 163.1,0 Z" id="Shape"></path>
+      </symbol>
+      <symbol id="svg-coupons" viewBox="0 0 345 88">
+        <desc>svg 优惠券背景</desc>
+        <g transform="translate(-15.000000, -407.000000)">
+          <path id="path-1" class="st0" d="M129,407h225c3.3,0,6,2.7,6,6v76c0,3.3-2.7,6-6,6H129c-0.3-3.9-3.5-7-7.5-7s-7.2,3.1-7.5,7H21
+            c-3.3,0-6-2.7-6-6v-76c0-3.3,2.7-6,6-6h93c0.3,3.9,3.5,7,7.5,7S128.7,410.9,129,407z"/>
+          <path class="st1" d="M129.4,407.5c-0.5,4-3.9,7-7.9,7s-7.4-3-7.9-7H21c-3,0-5.5,2.5-5.5,5.5v76c0,3,2.5,5.5,5.5,5.5h92.6
+            c0.5-4,3.9-7,7.9-7s7.4,3,7.9,7H354c3,0,5.5-2.5,5.5-5.5v-76c0-3-2.5-5.5-5.5-5.5H129.4z"/>
+        </g>
+      </symbol>
+      <symbol id="svg-member" viewBox="0 0 178 181">
+        <desc>svg 加V</desc>
+        <path d="M177.4,0.8 L177.4,7.3 C170.5,8.2 165.7,10 162.9,12.7 C160.1,15.5 157.2,20.7 154.1,28.4 L95.1,180.3 L88.1,180.3 L21.8,25.3 C18.5,17.9 15.7,13.3 13.3,11.5 C10.9,9.7 6.5,8.3 0.1,7.2 L0.1,0.8 L87.1,0.8 L87.1,7.2 C78.1,7.2 72.2,7.8 69.2,9 C66.3,10.2 64.8,13.2 64.8,18.1 C64.8,20 65.9,23.7 68,29.1 C70.2,34.5 71.7,38.3 72.5,40.4 L106.4,122.2 L139.4,37 C140.9,33.2 142.2,29.8 143.1,26.9 C144,24 144.5,21.4 144.5,19.1 C144.5,11.2 137.1,7.2 122.2,7.2 L122.2,0.8 L177.4,0.8 Z" id="Shape"></path>
+      </symbol>
+      <symbol id="svg-member-circle" viewBox="0 0 13 13">
+        <desc>svg 加V带背景</desc>
+          <circle cx="6.5" cy="6.5" r="6.5"></circle>
+          <g id="V" transform="translate(2.000000, 3.000000)" fill="#FFFFFF">
+              <path d="M9,0 L9,0.3 C8.7,0.3 8.4,0.4 8.3,0.6 C8.1,0.7 8,1 7.8,1.4 L4.8,9.1 L4.5,9.1 L1.1,1.2 C0.9,0.9 0.8,0.6 0.7,0.5 C0.6,0.5 0.3,0.4 0,0.3 L0,0 L4.4,0 L4.4,0.3 C3.9,0.3 3.6,0.3 3.5,0.4 C3.4,0.5 3.3,0.6 3.3,0.9 C3.3,1 3.4,1.2 3.5,1.5 C3.6,1.7 3.6,1.9 3.7,2 L5.4,6.1 L7.1,1.8 C7.2,1.6 7.2,1.4 7.3,1.3 C7.4,1.2 7.3,1 7.3,0.9 C7.3,0.5 6.9,0.3 6.2,0.3 L6.2,0 L9,0 Z" id="Shape"></path>
+          </g>
+      </symbol>
+      <symbol id="svg-praise" viewBox="0 0 18 19">
+        <desc>svg 赞</desc>
+        <path d="M4.39963244,7.48550467 L4.39963244,18.5 C5.94557274,18.5 5.97896409,18.5 6.3529581,18.5 L14.8235099,18.5 C15.7172365,18.5 16.44117,17.7791221 16.44117,16.8914263 L16.4450621,16.8291608 L17.5,8.45508076 C17.5,7.37917763 17.1492499,6.84547065 16.4117439,6.84547065 L9.93236907,6.84547065 L10.088446,6.2237315 C10.2123031,5.73034134 10.3363931,5.2370092 10.4607695,4.74352278 C10.8335774,3.26706869 10.542299,2.13199384 9.78367948,1.34297423 C9.22066132,0.757394317 8.40858189,0.432231357 8.04119116,0.507461529 C7.23334206,0.673312572 6.85033373,1.03572012 6.33243231,2.22169849 C6.02777456,2.9181235 5.39731468,4.65350414 4.39963244,7.48550467 Z" id="Shape"></path>
+        <polygon points="0.5 7.90431213 0.5 18.5 4.34238845 18.5 4.34238845 7.90431213"></polygon>
+      </symbol>
+      <symbol id="svg-comment" viewBox="0 0 156 138">
+        <desc>svg 评论</desc>
+        <path d="M137.4,126.3 C137.4,127.7 136.2,128.9 134.8,128.9 L12.3,128.9 C10.9,128.9 9.7,127.7 9.7,126.3 L9.7,15.1 C9.7,13.7 10.9,12.5 12.3,12.5 L121.6,12.5 L121.6,3.7 L12.3,3.7 C6,3.7 0.9,8.8 0.9,15.1 L0.9,126.4 C0.9,132.7 6,137.8 12.3,137.8 L134.7,137.8 C141,137.8 146.1,132.7 146.1,126.4 L146.1,72.9 L137.3,72.9 L137.4,126.3 Z" id="Shape"></path>
+        <polygon points="37.4 111.6 48.9 108.9 155.2 8.7 147.3 0.2 40.9 100.4"></polygon>
+      </symbol>
+    </svg>
+  </div>
+  <div class="wrap wrap-details-community">
+    <div class=" bar-comment bar bar-tool bar-tool-horizontal bar-absolute-bottom">
+      <div>
+        <a href="javascript:;" class="bar-item">
+          <span class="tab-icon">
+            <svg class="svg-praise _active">
+              <use xlink:href="#svg-praise" />
+            </svg>
+            <span class="tab-text">86</span>
+          </span>
+        </a>
+        <a href="javascript:;" class="bar-item">
+          <span class="tab-icon">
+            <svg class="svg-heart">
+              <use xlink:href="#svg-heart" />
+            </svg>
+            <span class="tab-text">86</span>
+          </span>
+        </a>
+      </div>
+      <a href="javascript:;" class="bar-item ">
+        <span class="tab-icon">
+          <svg class="svg-comment">
+            <use xlink:href="#svg-comment" />
+          </svg>
+          <span class="tab-text">写评论</span>
+        </span>
+      </a>
+    </div>
+    <!--/.bar-tool-->
+    <div class="content content-details">
+      <a href="javascript:;" class="back">
+        <svg class="svg-arrow _left">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow"></use>
+        </svg>
+      </a>
+      <!-- Swiper -->
+      <div class="swiper-container swiper-container-details">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="../../static/images/m/img324x324.jpg" alt="详情图">
+            <i class="icon icon-play">icon</i>
+            <div class="draw-pin-box">
+              <div class="draw-pin"></div>
+              <div class="draw-pin-text">
+                <div class="item">茉莉单方精油</div>
+                <div class="item">平静镇定，强韧稳固</div>
+              </div>
+            </div>
+            <!-- /.draw-pin-box -->
+          </div>
+          <div class="swiper-slide">
+            <img src="../../static/images/m/img458x716.jpg" alt="详情图">
+            <i class="icon icon-play">icon</i>
+          </div>
+          <div class="swiper-slide">
+            <img src="../../static/images/m/img458x716.jpg" alt="详情图">
+            <i class="icon icon-play">icon</i>
+          </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="pagination">1/4</div>
+      </div>
+      <!-- Swiper -->
+      <div class="details-box">
+        <div class="author-column-box">
+          <div class="author-column">
+            <div class="author-avatar">
+              <img src="../../static/images/m/avatar.jpg" alt="avatar">
+              <svg class="svg-member-circle size-lg">
+                <use xlink:href="#svg-member-circle" />
+              </svg>
+            </div>
+            <div class="item-inner">
+              <div class="item-title _ellipsis">IN EssenceEssenceEssenceEssenceEssenceEssence</div>
+              <div class="item-subtitle">2017.12.08  12:31</div>
+            </div>
+          </div>
+          <a href="javscript:;" class="btn-normal btn-primary btn-sm">关注</a>
+        </div>
+        <!-- /.author-column-box -->
+        <div class="article-content">
+          <div class="article-title-column">
+            <div class="item-title _ellipsis2">澳大利亚本土单方原生檀香澳大利亚本土单方原生檀香澳大利亚本土单方原生檀香澳大利亚本土单方原生檀香澳大利亚本土单方原生檀香澳大利亚本土单方原生檀香 5ml</div>
+            <div class="tag tag-primary">精选</div>
+          </div>
+          <!-- /.article-title-column -->
+          <div class=""> </div>
+        </div>
+        <!-- /.article-content-->
+      </div>
+      <!--/.details-box-->
+      <div class="card card-related mb-20">
+        <div class="card-header">
+          相关商品
+        </div>
+        <div class="card-body">
+          <div class=" item-goods item-horizontal">
+            <div class="item-media">
+              <img src="../../static/images/m/img324x324.jpg">
+            </div>
+            <div class="item-inner">
+              <div class="item-title _ellipsis">IE呼吸顺畅精油 25ML</div>
+              <div class="item-subtitle _ellipsis">
+                薄荷、尤加利、松香/薄荷、尤加利、松香/薄荷、尤加利、松香/薄荷、尤加利、松香/薄荷、尤加利、松香
+              </div>
+              <!-- /.title -->
+              <div class="item-flex-between item-bottom">
+                <div class="price-area">
+                  <div class="item-price size-lg"><em>¥</em>118</div>
+                </div>
+                <a href="javascript:;" class="btn-normal btn-primary _solid btn-sm">去购买</a>
+              </div>
+            </div>
+            <!-- /.item-inner -->
+          </div>
+          <!--/.item-goods 水平摆放商品-->
+        </div>
+      </div>
+      <div class="list-evaluation">
+        <div class="content-block-title _border">
+          <div class="text">
+            评论
+          </div>
+          <a href="javascript:;" class="links">
+            <span class="text">共43条评论</span>
+            <svg class="svg-arrow _right">
+              <use xlink:href="#svg-arrow" />
+            </svg>
+          </a>
+        </div>
+        <!-- /.content-block-title -->
+        <div class="item-goods">
+          <div class="author-column flex-between">
+            <div class="item-left">
+              <div class="author-avatar">
+                <img src="../../static/images/m/avatar.jpg" alt="avatar">
+              </div>
+              <div class="item-inner">
+                <div class="item-title _ellipsis">IN EssenceEs</div>
+                <div class="item-subtitle">2017.12.08  12:31</div>
+              </div>
+            </div>
+            <a href="javascript:;">回复</a>
+          </div>
+          <!-- /.author -->
+          <div class="section-question">
+            <div class="item-text">
+              澳洲产品还是很不错的，价格也合适，以后精油产品就买这个牌子了。
+            </div>
+            <div class="item-reply">
+              <p>
+                IE ESSENCE回复：感谢您选择IE ESSENCE，在使用中遇到任何问题随时可以联系我们，我们会全力为您解答，再次感谢。
+              </p>
+              <p>
+                IE ESSENCE回复：感谢您选择IE ESSENCE，在使用中遇到任何问题随时可以联系我们，我们会全力为您解答，再次感谢。
+              </p>
+            </div>
+          </div>
+          <!-- /.section-question-->
+        </div>
+        <!--/.item-goods-->
+        <div class="item-goods">
+          <div class="author-column flex-between">
+            <div class="item-left">
+              <div class="author-avatar">
+                <img src="../../static/images/m/avatar.jpg" alt="avatar">
+              </div>
+              <div class="item-title">IN Essence</div>
+            </div>
+            <a href="javascript:;">回复</a>
+          </div>
+          <!-- /.author -->
+          <div class="section-question">
+            <div class="item-text">
+              澳洲产品还是很不错的，价格也合适，以后精油产品就买这个牌子了。
+            </div>
+            <div class="item-reply">
+              <p>
+                IE ESSENCE回复：感谢您选择IE ESSENCE，在使用中遇到任何问题随时可以联系我们，我们会全力为您解答，再次感谢。
+              </p>
+            </div>
+          </div>
+          <!-- /.section-question-->
+        </div>
+        <!--/.item-goods-->
+      </div>
+      <!-- /.list-evaluation -->
+    </div>
+    <!--/.content-->
+  </div>
+  <!--/.wrap-->
+
+
+  </body>
+  <script>
+    var swiper = new Swiper('.swiper-container-details', {
+      pagination: '.swiper-pagination',
+      paginationClickable: true,
+      // autoplay: 2000
+    });
+    var swiper = new Swiper('.swiper-container-evaluation', {
+      pagination: '.swiper-pagination',
+      paginationClickable: true,
+      autoplay: 5000
+    });
+
+    </script>
+</html>

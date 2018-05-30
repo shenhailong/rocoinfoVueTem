@@ -1,0 +1,2 @@
+export const CART_SET_QUANTITY = 'CART_SET_QUANTITY'
+

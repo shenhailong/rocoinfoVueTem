@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="<%= htmlWebpackPlugin.options.inject_keywords %>" />
+    <meta name="description" content="<%= htmlWebpackPlugin.options.inject_description %>" />
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <title>搜索记录</title>
+
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../static/vendor/swiper/css/swiper.min.css" />
+    <!-- 引入组件库 -->
+    <script src="../../static/libs/flexible.js"></script>
+    <script src="../../static/vendor/swiper/js/swiper.min.js"></script>
+  </head>
+  <body>
+  <!--svg 图标集合-->
+  <div class="disN">
+    <?xml version="1.0" standalone="no"?>
+    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <symbol id="svg-search" viewBox="0 0 889 900">
+        <desc>svg 搜索</desc>
+        <path d="M880.18836,848.49498 L697.640767,665.949434 C760.616054,595.352563 798.892822,502.248072 798.892822,400.200908 C798.892822,179.627257 620.086437,0.820872 399.516879,0.820872 C178.947321,0.820872 0.140936,179.627257 0.140936,400.200908 C0.140936,620.768419 178.947321,799.575828 399.516879,799.575828 C496.474118,799.575828 585.358494,765.020824 654.53604,707.560135 L837.8286,890.852694 C849.526013,902.558294 868.490947,902.558294 880.18836,890.852694 C891.885773,879.159374 891.885773,860.189324 880.18836,848.49498 Z M60.047328,400.200908 C60.047328,212.713816 212.031835,60.727263 399.51688,60.727263 C586.999879,60.727263 738.986432,212.713816 738.986432,400.200908 C738.986432,587.68186 586.999879,739.668413 399.51688,739.668413 C212.031834,739.669436 60.047328,587.682883 60.047328,400.200908 Z" ></path>
+      </symbol>
+      <symbol id="svg-arrow" viewBox="0 0 438 750">
+        <desc>svg 箭头</desc>
+        <path d="M430.696401,395.102744 C431.18292,394.129707 432.034327,393.278299 432.399216,392.305262 C440.913291,374.547334 438.115809,352.653997 423.033733,338.423328 L79.30835,13.307281 C60.577384,-4.450647 31.02138,-3.59924 13.263452,15.131726 C-4.494476,33.862692 -3.643069,63.418696 15.087897,81.176624 L323.540682,372.966148 L16.304193,669.012709 C-2.305143,686.892267 -2.791662,716.448271 15.087897,735.057607 C24.210121,744.544719 36.494715,749.409905 48.65768,749.409905 C60.334126,749.409905 72.010572,745.031238 81.011166,736.273903 L421.574178,407.995485 C422.182326,407.387337 422.425586,406.4143 423.155363,405.806151 C423.641882,405.319632 424.1284,404.954743 424.736548,404.468225 C427.53403,401.670745 428.871956,398.265115 430.696401,395.102744 L430.696401,395.102744 L430.696401,395.102744 Z"></path>
+      </symbol>
+    </svg>
+  </div>
+  <div class="wrap wrap-search-record">
+    <div class=" bar bar-search _border bar-absolute-top">
+      <a href="javascript:;" class="bar-item item-arrow">
+        <svg class="svg-arrow _left">
+          <use xlink:href="#svg-arrow" />
+        </svg>
+      </a>
+      <div class="item-search">
+        <div class="search clearfix" id="search">
+          <div class="search-input _radius">
+            <input data-handle="_searchinput" placeholder="搜索商品名称">
+            <label class="search-icon-front">
+              <svg class="svg-search">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-search"></use>
+              </svg>
+            </label>
+          </div>
+        </div>
+      </div>
+      <a href="javascript:;" class="item-search-btn">搜索</a>
+    </div>
+    <!--/.bar-search-->
+    <div class="content">
+      <div class="content-block-title">
+        热门搜索
+      </div>
+      <div class="tag-block _random">
+        <span class="tag tag-lg _ellipsis">美白</span>
+        <span class="tag tag-lg _ellipsis">调节内分泌</span>
+        <span class="tag tag-lg _ellipsis">美白</span>
+        <span class="tag tag-lg _ellipsis">调节内分泌泌</span>
+        <span class="tag tag-lg _ellipsis">美白</span>
+        <span class="tag tag-lg _ellipsis">柠檬味</span>
+        <span class="tag tag-lg _ellipsis">美白</span>
+        <span class="tag tag-lg _ellipsis">调节内分泌</span>
+        <span class="tag tag-lg _ellipsis">美白</span>
+        <span class="tag tag-lg _ellipsis">调节内分泌</span>
+        <span class="tag tag-lg _ellipsis">美白</span>
+        <span class="tag tag-lg _ellipsis">调节内分泌</span>
+      </div>
+      <div class="space-20"></div>
+      <div class="content-block-title">
+        历史搜索
+      </div>
+      <div class="tips-box disN">
+        <div class="tips-no-result">
+          <p>没有历史记录</p>
+        </div>
+        <!-- /.tips-no-result -->
+      </div>
+      <!-- /.tips-box -->
+      <div class="search-history">
+        <ul class="list-search-history">
+          <li><a href="javascript:;" class="item">柠檬味</a></li>
+          <li><a href="javascript:;" class="item">助眠</a></li>
+          <li><a href="javascript:;" class="item">去鱼尾纹</a></li>
+          <li><a href="javascript:;" class="item">缓解鼻塞</a></li>
+        </ul>
+        <div class="text-center">
+          <a href="javascript:;" class="btn-normal btn-xxl btn-clearall">清空历史记录</a>
+        </div>
+      </div>
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.wrap -->
+  </body>
+</html>

@@ -1,0 +1,261 @@
+.svg-message{
+  width: px2rem(40px);
+  height: px2rem(36px);
+  fill: #333333;
+  vertical-align: middle;
+}
+.svg-search {
+  width: px2rem(40px);
+  height: px2rem(40px);
+  fill: #333333;
+  vertical-align: middle;
+}
+.svg-vip-solid{
+  fill: #ffffff;
+  width: px2rem(36px);
+  height: px2rem(36px);
+  vertical-align: middle;
+  margin-right: px2rem(20px);
+}
+.svg-home,
+.svg-community,
+.svg-vip,
+.svg-cart,
+.svg-mine{
+  fill: #333333;
+  height: px2rem(36px);
+  vertical-align: middle;
+}
+.svg-home{
+  width: px2rem(28px);
+}
+.svg-community{
+  width: px2rem(36px);
+}
+.svg-vip{
+  width: px2rem(36px);
+}
+.svg-cart{
+  width: px2rem(36px);
+}
+.svg-mine{
+  width: px2rem(28px);
+}
+.svg-wallet,
+.svg-deliver,
+.svg-receiving,
+.svg-evalute,
+.svg-after-sale{
+  width: px2rem(36px);
+  height: px2rem(36px);
+  fill: $color-primary;
+  vertical-align: middle;
+}
+.svg-topic,
+.svg-invitation,
+.svg-service,
+.svg-about,
+.svg-safe{
+  width: px2rem(28px);
+  height: px2rem(32px);
+  vertical-align: middle;
+  fill: #333333;
+}
+.svg-heart {
+  width: px2rem(40px);
+  height: px2rem(39px);
+  fill: transparent;
+  stroke: #333333;
+  stroke-width: 40;
+  vertical-align: middle;
+  &._active {
+    animation-name: starAnim;
+    animation-duration: .8s;
+    animation-timing-function: ease;
+    fill: $color-red;
+    stroke: $color-red;
+  }
+}
+.svg-praise{
+  width: px2rem(40px);
+  height: px2rem(39px);
+  fill: transparent;
+  stroke: $color-primary;
+  vertical-align: middle;
+  &._active {
+    animation-name: starAnim;
+    animation-duration: .8s;
+    animation-timing-function: ease;
+    fill: $color-primary;
+    stroke: #ffffff;
+  }
+}
+
+.svg-comment {
+  width: px2rem(40px);
+  height: px2rem(39px);
+  fill: $color-primary;
+  vertical-align: middle;
+}
+.svg-trash,
+.svg-edit{
+  width: px2rem(34px);
+  height: px2rem(34px);
+  fill: #333333;
+  vertical-align: middle;
+}
+.svg-minus,
+.svg-add{
+  vertical-align: middle;
+  width: px2rem(20px);
+  height: px2rem(40px);
+}
+.svg-member{
+  width: px2rem(12px);
+  height: px2rem(12px);
+  fill: #ffffff;
+  vertical-align: middle;
+}
+.svg-check{
+  vertical-align: middle;
+  width: px2rem(20px);
+  height: px2rem(16px);
+  fill: #ffffff;
+}
+.svg-coupons{
+  width: px2rem(690px);
+  height: px2rem(176px);
+  fill: #ffffff;
+  stroke: #e5e5e5;
+}
+.svg-filter{
+  vertical-align: middle;
+  width: px2rem(36px);
+  height: px2rem(36px);
+  fill: #999999;
+}
+.svg-close{
+  width: px2rem(20px);
+  height: px2rem(20px);
+  fill: #999999;
+  vertical-align: middle;
+}
+.svg-close-circle{
+  width: px2rem(26px);
+  height: px2rem(26px);
+  fill: $color-red;
+}
+.svg-location{
+  width: px2rem(28px);
+  height: px2rem(36px);
+  fill: #666666;
+  vertical-align: middle;
+}
+.svg-member-circle{
+  width: px2rem(32px);
+  height: px2rem(32px);
+  fill: #192745;
+  vertical-align: middle;
+}
+.svg-member-grade{
+  width: px2rem(18px);
+  height: px2rem(21px);
+  fill: #ffffff;
+  vertical-align: middle;
+}
+.svg-pay-success,
+.svg-pay-fail{
+  width: px2rem(80px);
+  height: px2rem(80px);
+  vertical-align: middle;
+}
+.svg-pay-success{
+  fill: #4dab00;
+}
+.svg-pay-fail{
+  fill: $color-red;
+}
+.svg-write{
+  width: px2rem(40px);
+  height: px2rem(39px);
+  fill: $color-primary;
+  vertical-align: middle;
+}
+.svg-return-top{
+  width: px2rem(40px);
+  height: px2rem(40px);
+  fill: #999999;
+  vertical-align: middle;
+}
+
+.svg-grad1,
+.svg-grad2,
+.svg-grad3,
+.svg-grad4,
+.svg-grad5,
+.svg-grad6{
+  width: px2rem(38px);
+  height: px2rem(36px);
+  vertical-align: middle;
+}
+
+.svg-privilege0,
+.svg-privilege1,
+.svg-privilege2,
+.svg-privilege3,
+.svg-privilege4,
+.svg-privilege5,
+.svg-privilege6,
+.svg-privilege7,
+.svg-privilege8{
+  width: px2rem(70px);
+  height: px2rem(70px);
+  vertical-align: middle;
+}
+
+.svg-circle-close{
+  width: px2rem(60px);
+  height: px2rem(60px);
+  fill: #ffffff;
+  vertical-align: middle;
+}
+
+.logo-company{
+  width: px2rem(202px);
+  height: px2rem(52px);
+  fill: #212944;
+  vertical-align: middle;
+}
+.svg-arrow {
+  width: px2rem(14px);
+  height: px2rem(24px);
+  fill: $color-text;
+  // vertical-align: middle;
+  &._left {
+    transform: rotate(180deg);
+  }
+  &._up {
+    transform: rotate(270deg);
+  }
+  &._down {
+    transform: rotate(90deg);
+  }
+}
+
+.svg-triangle {
+  width: px2rem(16px);
+  height: px2rem(8px);
+  fill: #cccccc;
+  vertical-align: middle;
+  &._left {
+    transform: rotate(270deg);
+  }
+  &._up {
+    transform: rotate(180deg);
+  }
+  &._right {
+    transform: rotate(90deg);
+  }
+}
+
+

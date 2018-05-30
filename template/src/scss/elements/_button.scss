@@ -1,0 +1,186 @@
+// Button group
+/* 按钮组 横向无间隙 */
+.button-line {
+	display: inline-block;
+	.btn-normal{
+    /*去掉默认按钮间的默认间距*/
+		float: left;
+    /* 需要加间隙 */
+    + .btn-normal{
+      margin-left: px2rem(50px);
+    }
+  }
+  // 按钮组水平居中样式
+  &._flex-align-center{
+    display: flex;
+    justify-content: center;
+  }
+}
+/* 按钮组 竖向 */
+.button-block{
+  width: 100%;
+  .btn-normal{
+    display: block;
+    width: 100%;
+    + .btn-normal{
+      margin-top: px2rem(20px);
+    }
+  }
+}
+
+/* 基本按钮 line-height计算时要减去4px的值 */
+//默认按钮，用于列表
+.btn-normal {
+  display: inline-block;
+  min-width: px2rem(88px);
+  padding: 0 px2rem(10px);
+  @include font-dpr(26px);
+  @include lh-dpr(51px);
+	text-align: center;
+	cursor: pointer;
+	white-space: nowrap;
+  border-radius: px2rem(4px);
+  border: 1px solid $color-border;
+  color: $color-text;
+  background: #ffffff;
+  box-sizing: border-box;
+  &._solid{
+    color: #ffffff;
+    background: $color-border;
+  }
+}
+
+//button大小
+.btn-xxs{
+  // min-width: px2rem(160px);
+  @include lh-dpr(42px);
+  @include font-dpr(22px);
+}
+//线框按钮大小，eg:关注，立即领取
+.btn-xs{
+  min-width: px2rem(126px);
+  @include lh-dpr(48px);
+}
+//默认按钮，用于列表
+.btn-sm{
+  padding: 0 px2rem(16px);
+  min-width: px2rem(156px);
+  // min-width: 63px;
+  @include lh-dpr(54px);
+}
+//表单按钮大小
+.btn-lg{
+  min-width: px2rem(128px);
+  padding: 0 px2rem(19px);
+  @include lh-dpr(58px);
+}
+//提示页面按钮
+.btn-xl{
+  min-width: px2rem(290px);
+  @include lh-dpr(70px);
+  border-radius: px2rem(8px);
+}
+//表单通栏按钮
+.btn-xxl{
+  @include lh-dpr(86px);
+  @include font-dpr(30px);
+  border-radius: px2rem(8px);
+}
+
+.btn-primary{
+  color: $color-primary;;
+  border-color: $color-primary;
+  &._solid{
+    color: #ffffff;
+    background: $color-primary;
+  }
+}
+.btn-orange{
+  color: $color-orange;
+  border-color: $color-orange;
+  &._solid{
+    color: #ffffff;
+    background: $color-orange;
+  }
+}
+.btn-gradient{
+  width: px2rem(160px);
+  height: px2rem(54px);
+  line-height: px2rem(52px);
+  padding: 0;
+  border-radius: (54px);
+  color: #ffffff;
+  background-image:linear-gradient( -160deg, #e8340c, #e9745a);
+  border-color: transparent;
+  box-shadow: 3px px2rem(8px) px2rem(23px) #f5b9ac;
+}
+.btn-disabled{
+  color: #ffffff;
+  background: #cccccc;
+  border-color: #cccccc;
+}
+.btn-cancel{
+  color: #ffffff;
+  background: #999999;
+  border-color: #999999;
+}
+//特殊按钮
+//清除历史记录
+.btn-clearall{
+  width: px2rem(400px);
+  border-radius: 0!important;
+}
+//评论
+.btn-comment{
+  width: px2rem(88px);
+  @include lh-dpr(66px);
+}
+//添加标签
+.btn-add-tags{
+  width: px2rem(244px);
+  @include lh-dpr(72px);
+}
+//更多
+.btn-more{
+  width: px2rem(348px);
+  height: px2rem(96px);
+  border-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .svg-arrow{
+    margin-left: px2rem(10px);
+  }
+}
+
+
+
+.btn-fixed{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-br{
+  line-height: 1.2 !important;
+}
+
+.rocoui-cropper-picker {
+  background: rgba(0, 0, 0, .8);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 px2rem(14px);
+  button {
+    background: transparent;
+    width: px2rem(70px)!important;
+    height: px2rem(80px)!important;
+    @include font-dpr(28px);
+    color: #fff;
+    border: none;
+  }
+}
+
+
+
+
+

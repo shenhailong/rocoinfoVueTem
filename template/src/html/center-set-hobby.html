@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="<%= htmlWebpackPlugin.options.inject_keywords %>" />
+    <meta name="description" content="<%= htmlWebpackPlugin.options.inject_description %>" />
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <title>偏好设置</title>
+
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../static/vendor/swiper/css/swiper.min.css" />
+    <!-- 引入组件库 -->
+    <script src="../../static/libs/flexible.js"></script>
+    <script src="../../static/vendor/swiper/js/swiper.min.js"></script>
+  </head>
+  <body>
+  <!--svg 图标集合-->
+  <div class="disN">
+    <?xml version="1.0" standalone="no"?>
+    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <symbol id="svg-arrow" viewBox="0 0 438 750">
+        <desc>svg 箭头</desc>
+        <path d="M430.696401,395.102744 C431.18292,394.129707 432.034327,393.278299 432.399216,392.305262 C440.913291,374.547334 438.115809,352.653997 423.033733,338.423328 L79.30835,13.307281 C60.577384,-4.450647 31.02138,-3.59924 13.263452,15.131726 C-4.494476,33.862692 -3.643069,63.418696 15.087897,81.176624 L323.540682,372.966148 L16.304193,669.012709 C-2.305143,686.892267 -2.791662,716.448271 15.087897,735.057607 C24.210121,744.544719 36.494715,749.409905 48.65768,749.409905 C60.334126,749.409905 72.010572,745.031238 81.011166,736.273903 L421.574178,407.995485 C422.182326,407.387337 422.425586,406.4143 423.155363,405.806151 C423.641882,405.319632 424.1284,404.954743 424.736548,404.468225 C427.53403,401.670745 428.871956,398.265115 430.696401,395.102744 L430.696401,395.102744 L430.696401,395.102744 Z"></path>
+      </symbol>
+      <symbol id="svg-close" viewBox="0 0 160 161">
+        <desc>svg 关闭</desc>
+        <path d="M141.2,156.9 C145.4,161.1 152.2,161.1 156.4,156.9 C160.6,152.7 160.6,145.9 156.4,141.7 L95.1,80.4 L95.8,79.7 L156.4,19 C158.4,17 159.6,14.3 159.6,11.4 C159.6,8.5 158.5,5.8 156.4,3.8 C152.2,-0.4 145.4,-0.4 141.2,3.8 L79.9,65.1 L18.6,3.8 C16.5,1.7 13.7,0.7 11,0.7 C8.2,0.7 5.5,1.7 3.4,3.8 C1.4,5.8 0.2,8.5 0.2,11.4 C0.2,14.3 1.3,17 3.4,19 L64.7,80.3 L3.4,141.6 C-0.8,145.8 -0.8,152.6 3.4,156.8 C7.6,161 14.4,161 18.6,156.8 L79.9,95.5 L141.2,156.9 Z" id="Shape"></path>
+      </symbol>
+      <symbol id="svg-close-circle" viewBox="0 0 13 13">
+        <desc>svg 关闭</desc>
+        <g transform="translate(-79.000000, -289.000000)">
+          <g transform="translate(79.000000, 289.000000)">
+            <circle cx="6.5" cy="6.5" r="6.5"/>
+            <polygon fill="#ffffff" points="9.3,10 6.5,7.2 3.7,10 3,9.3 5.8,6.5 3,3.7 3.7,3 6.5,5.8 9.3,3 10,3.7 7.2,6.5 10,9.3
+              "/>
+          </g>
+          </g>
+      </symbol>
+
+    </svg>
+  </div>
+  <div class="wrap wrap-set-hobby">
+    <div class="bar bar-nav _border bar-absolute-top">
+      <a href="javascript:;" class="bar-item item-arrow">
+        <svg class="svg-arrow _left">
+          <use xlink:href="#svg-arrow" />
+        </svg>
+      </a>
+      <div class="bar-item">偏好标签</div>
+    </div>
+    <!--/.bar-nav-->
+    <div class="content">
+      <div class="content-block-title">
+        偏好标签
+      </div>
+      <div class="tag-block _random">
+        <span class="tag tag-lg">
+          美白
+          <svg class="svg-close-circle">
+            <use xlink:href="#svg-close-circle" />
+          </svg>
+        </span>
+        <span class="tag tag-lg">调节内分泌</span>
+        <span class="tag tag-lg">美白</span>
+        <span class="tag tag-lg">调节内分泌泌</span>
+        <span class="tag tag-lg">美白</span>
+        <span class="tag tag-lg">柠檬味</span>
+        <span class="tag tag-lg">美白</span>
+        <span class="tag tag-lg">调节内分泌</span>
+        <span class="tag tag-lg">美白</span>
+        <span class="tag tag-lg">调节内分泌</span>
+        <span class="tag tag-lg">美白</span>
+        <span class="tag tag-lg">调节内分泌</span>
+      </div>
+      <div class="content-block-title">
+        自定义标签
+      </div>
+      <div class="add-hobby-input">
+        <input type="text" placeholder="输入的关键词最多支持7个汉字" class="item-input">
+        <a href="javascript:;" class="btn-normal btn-primary _solid btn-lg">添加标签</a>
+        </a>
+      </div>
+    </div>
+    <!-- /.content -->
+
+  </div>
+  <!-- /.wrap -->
+  </body>
+</html>

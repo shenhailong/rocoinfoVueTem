@@ -1,36 +1,5 @@
-# {{ name }}
-
-> {{ description }}
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-{{#unit}}
-
-# run unit tests
-npm run unit
-{{/unit}}
-{{#e2e}}
-
-# run e2e tests
-npm run e2e
-{{/e2e}}
-{{#if_or unit e2e}}
-
-# run all tests
-npm test
-{{/if_or}}
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+`/api/wap/login/testLogin` 登录接口
+`/api/wap/login/testLogin1` 登录接口
+[swagger文档](http://192.168.3.105:8083/swagger-ui.html)
+测试登录链接
+`https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx6cc2dad839eb373c&redirect_uri=http%3a%2f%2foilwxtest.rocoinfo.cn%2fapi%2fwap%2flogin%3fredirect%3Dhttp%3A%2F%2Foilwxtest.rocoinfo.cn%2Fwap%2Fhtml%2Fwap%2Findex.html%23%2Fmain&response_type=code&scope=snsapi_base&state=123#wechat_redirect`

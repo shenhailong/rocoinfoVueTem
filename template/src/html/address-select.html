@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="<%= htmlWebpackPlugin.options.inject_keywords %>" />
+    <meta name="description" content="<%= htmlWebpackPlugin.options.inject_description %>" />
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <title>地址选择</title>
+
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../static/vendor/swiper/css/swiper.min.css" />
+    <!-- 引入组件库 -->
+    <script src="../../static/libs/flexible.js"></script>
+    <script src="../../static/vendor/swiper/js/swiper.min.js"></script>
+  </head>
+  <body>
+  <!--svg 图标集合-->
+  <div class="disN">
+    <?xml version="1.0" standalone="no"?>
+    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <symbol id="svg-arrow" viewBox="0 0 438 750">
+        <desc>svg 箭头</desc>
+        <path d="M430.696401,395.102744 C431.18292,394.129707 432.034327,393.278299 432.399216,392.305262 C440.913291,374.547334 438.115809,352.653997 423.033733,338.423328 L79.30835,13.307281 C60.577384,-4.450647 31.02138,-3.59924 13.263452,15.131726 C-4.494476,33.862692 -3.643069,63.418696 15.087897,81.176624 L323.540682,372.966148 L16.304193,669.012709 C-2.305143,686.892267 -2.791662,716.448271 15.087897,735.057607 C24.210121,744.544719 36.494715,749.409905 48.65768,749.409905 C60.334126,749.409905 72.010572,745.031238 81.011166,736.273903 L421.574178,407.995485 C422.182326,407.387337 422.425586,406.4143 423.155363,405.806151 C423.641882,405.319632 424.1284,404.954743 424.736548,404.468225 C427.53403,401.670745 428.871956,398.265115 430.696401,395.102744 L430.696401,395.102744 L430.696401,395.102744 Z"></path>
+      </symbol>
+      <symbol id="svg-edit" viewBox="0 0 17 17">
+        <desc>svg 编辑</desc>
+        <path d="M7.6,9.4c0.2,0.2,0.5,0.2,0.7,0l8.4-8.4c0.2-0.2,0.2-0.5,0-0.7c-0.2-0.2-0.5-0.2-0.7,0L7.6,8.7
+              C7.4,8.9,7.4,9.2,7.6,9.4z M16.6,7.2c-0.2,0-0.4,0.2-0.4,0.4v7.4c0,0.6-0.5,1.1-1.1,1.1H1.9c-0.6,0-1.1-0.5-1.1-1.1V1.9
+              c0-0.6,0.5-1.1,1.1-1.1h7.4c0.2,0,0.4-0.2,0.4-0.4C9.8,0.2,9.6,0,9.4,0H1.7C0.8,0,0,0.8,0,1.7v13.6C0,16.2,0.8,17,1.7,17h13.6
+              c0.9,0,1.7-0.8,1.7-1.7V7.7C17,7.4,16.8,7.2,16.6,7.2z"/>
+      </symbol>
+      <symbol id="svg-trash" viewBox="0 0 98 108">
+        <desc>svg 删除</desc>
+        <path d="M94.8,18.7 L3.2,18.7 C1.6,18.7 0.2,17.3 0.2,15.6 C0.2,13.9 1.5,12.5 3.2,12.5 L94.9,12.5 C96.5,12.5 97.9,13.9 97.9,15.6 C97.8,17.4 96.5,18.7 94.8,18.7 L94.8,18.7 L94.8,18.7 Z M65.3,6.5 L32.7,6.5 C31.1,6.5 29.7,5.1 29.7,3.4 C29.7,1.7 31,0.3 32.7,0.3 L65.2,0.3 C66.8,0.3 68.2,1.7 68.2,3.4 C68.2,5.1 66.9,6.5 65.3,6.5 L65.3,6.5 L65.3,6.5 Z M35.7,86.2 L35.7,34.1 C35.7,32.4 37,31 38.7,31 C40.3,31 41.7,32.4 41.7,34.1 L41.7,86.2 C41.7,87.9 40.4,89.3 38.7,89.3 C37,89.3 35.7,87.9 35.7,86.2 L35.7,86.2 L35.7,86.2 Z M56.4,86.2 L56.4,34.1 C56.4,32.4 57.7,31 59.4,31 C61,31 62.4,32.4 62.4,34.1 L62.4,86.2 C62.4,87.9 61.1,89.3 59.4,89.3 C57.7,89.3 56.4,87.9 56.4,86.2 L56.4,86.2 L56.4,86.2 Z M15,27.9 C16.6,27.9 18,29.3 18,31 L18,34.6 L18,46.3 L18,95.4 C18,98.8 20.7,101.5 23.9,101.5 L74.2,101.5 C77.5,101.5 80.1,98.8 80.1,95.4 L80.1,46.3 L80.1,34.6 L80.1,31 C80.1,29.3 81.4,27.9 83.1,27.9 C84.7,27.9 86.1,29.3 86.1,31 L86.1,43.3 L86.1,46.4 L86.1,98.5 C86.1,103.6 82.1,107.7 77.2,107.7 L20.9,107.7 C16,107.7 12,103.6 12,98.5 L12,52 L12,46.4 L12,43.3 L12,31 C12,29.3 13.4,27.9 15,27.9 L15,27.9 L15,27.9 Z" id="Shape"></path>
+      </symbol>
+    </svg>
+  </div>
+  <div class="wrap wrap-address-select">
+    <div class="bar bar-nav _border bar-absolute-top">
+      <a href="http://www.baidu.com" class="bar-item item-arrow">
+        <svg class="svg-arrow _left">
+          <use xlink:href="#svg-arrow" />
+        </svg>
+      </a>
+      <div class="bar-item">地址选择</div>
+    </div>
+    <!--/.bar-nav-->
+    <div class="content">
+      <div class="tips-box">
+        <div class="tips-no-result">
+          <div class="icon-area">
+            <i class="icon icon-no-address">icon</i>
+          </div>
+          <p>暂无收货地址</p>
+          <p>你可以新建地址以方便收货</p>
+          <a href="javascript:;" class="btn-normal btn-primary btn-xl _solid">新增收货地址</a>
+        </div>
+        <!-- /.tips-no-result -->
+      </div>
+      <!-- /.tips-box -->
+      <div class="card card-address">
+        <div class="card-body">
+          <div class="item-user-info">
+            <span>秦飞</span>
+            <span>13349550505</span>
+          </div>
+          <div class="item-address">
+            北京市海淀区上地东路1号院1号楼盈创动力大厦A座7层3223
+            室1号楼盈创动
+          </div>
+        </div>
+        <div class="card-footer _border-top">
+          <div class="item-left">
+            <!-- <em>剩余付款时间27：45</em> -->
+          <label class="label-checkbox">
+            <input type="checkbox" name="my-radio">
+            <i class="icon icon-form-checkbox">icon</i>
+            设为默认地址
+          </label>
+          </div>
+          <!-- /.item-left -->
+          <div class="item-right">
+            <a href="javascript:;" class="links-edit">
+              <svg class="svg-edit">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-edit"></use>
+              </svg>
+              编辑
+            </a>
+            <a href="javascript:;" class="links-del">
+              <svg class="svg-trash">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-trash"></use>
+              </svg>
+              删除
+            </a>
+          </div>
+          <!--/.item-right -->
+        </div>
+        <!-- /.card-footer -->
+      </div>
+      <!-- /.card -->
+      <div class="space-20"></div>
+      <div class="card card-address">
+        <div class="card-body">
+          <div class="item-user-info">
+            <span>秦飞</span>
+            <span>13349550505</span>
+          </div>
+          <div class="item-address">
+            北京市海淀区上地东路1号院1号楼盈创动力大厦A座7层3223
+            室1号楼盈创动
+          </div>
+        </div>
+        <div class="card-footer _border-top">
+          <div class="item-left">
+            <!-- <em>剩余付款时间27：45</em> -->
+          <label class="label-checkbox">
+            <input type="checkbox" name="my-radio">
+            <i class="icon icon-form-checkbox">icon</i>
+            设为默认地址
+          </label>
+          </div>
+          <!-- /.item-left -->
+          <div class="item-right">
+            <a href="javascript:;" class="links-edit">
+              <svg class="svg-edit">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-edit"></use>
+              </svg>
+              编辑
+            </a>
+            <a href="javascript:;" class="links-del">
+              <svg class="svg-trash">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-trash"></use>
+              </svg>
+              删除
+            </a>
+          </div>
+          <!--/.item-right -->
+        </div>
+        <!-- /.card-footer -->
+      </div>
+      <!-- /.card -->
+      <div class="space-20"></div>
+      <div class="button-block">
+        <button class="btn-normal btn-primary _solid btn-xxl">新建收货地址</button>
+      </div>
+      <!-- /.button-block -->
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.wrap -->
+  </body>
+</html>

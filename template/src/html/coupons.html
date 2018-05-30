@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="keywords" content="<%= htmlWebpackPlugin.options.inject_keywords %>" />
+  <meta name="description" content="<%= htmlWebpackPlugin.options.inject_description %>" />
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="yes" name="apple-touch-fullscreen">
+  <meta content="telephone=no,email=no" name="format-detection">
+  <title>优惠券</title>
+
+  <!-- 引入样式 -->
+  <link rel="stylesheet" href="../../static/css/style.css">
+  <link rel="stylesheet" type="text/css" href="../../static/vendor/swiper/css/swiper.min.css" />
+  <!-- 引入组件库 -->
+  <script src="../../static/libs/flexible.js"></script>
+  <script src="../../static/vendor/swiper/js/swiper.min.js"></script>
+</head>
+
+<body>
+  <!--svg 图标集合-->
+  <div class="disN">
+    <?xml version="1.0" standalone="no"?>
+    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <symbol id="svg-arrow" viewBox="0 0 438 750">
+        <desc>svg 箭头</desc>
+        <path d="M430.696401,395.102744 C431.18292,394.129707 432.034327,393.278299 432.399216,392.305262 C440.913291,374.547334 438.115809,352.653997 423.033733,338.423328 L79.30835,13.307281 C60.577384,-4.450647 31.02138,-3.59924 13.263452,15.131726 C-4.494476,33.862692 -3.643069,63.418696 15.087897,81.176624 L323.540682,372.966148 L16.304193,669.012709 C-2.305143,686.892267 -2.791662,716.448271 15.087897,735.057607 C24.210121,744.544719 36.494715,749.409905 48.65768,749.409905 C60.334126,749.409905 72.010572,745.031238 81.011166,736.273903 L421.574178,407.995485 C422.182326,407.387337 422.425586,406.4143 423.155363,405.806151 C423.641882,405.319632 424.1284,404.954743 424.736548,404.468225 C427.53403,401.670745 428.871956,398.265115 430.696401,395.102744 L430.696401,395.102744 L430.696401,395.102744 Z"></path>
+      </symbol>
+      <symbol id="svg-coupons" viewBox="0 0 346 89">
+        <desc>svg 优惠券背景</desc>
+        <g transform="translate(-15.000000, -407.000000)">
+          <path id="path-1" class="st0" d="M129,407h225c3.3,0,6,2.7,6,6v76c0,3.3-2.7,6-6,6H129c-0.3-3.9-3.5-7-7.5-7s-7.2,3.1-7.5,7H21
+            c-3.3,0-6-2.7-6-6v-76c0-3.3,2.7-6,6-6h93c0.3,3.9,3.5,7,7.5,7S128.7,410.9,129,407z" />
+          <path class="st1" d="M129.4,407.5c-0.5,4-3.9,7-7.9,7s-7.4-3-7.9-7H21c-3,0-5.5,2.5-5.5,5.5v76c0,3,2.5,5.5,5.5,5.5h92.6
+            c0.5-4,3.9-7,7.9-7s7.4,3,7.9,7H354c3,0,5.5-2.5,5.5-5.5v-76c0-3-2.5-5.5-5.5-5.5H129.4z" />
+        </g>
+      </symbol>
+      <symbol id="svg-check" viewBox="0 0 172 121">
+        <desc>svg 对勾</desc>
+        <path d="M163.1,0 C160.6,0 158.3,1 156.7,2.7 L156.7,2.7 L60.8,98.7 L15.8,53.6 L15.8,53.6 C14.2,51.8 11.8,50.6 9.1,50.6 C4.2,50.6 0.2,54.6 0.2,59.5 C0.2,62.1 1.3,64.5 3.2,66.1 L3.2,66.1 L54.5,117.6 C54.5,117.6 54.5,117.6 54.5,117.6 C56.1,119.2 58.4,120.3 60.9,120.3 C63.4,120.3 65.6,119.3 67.3,117.6 L169.2,15.4 C170.9,13.8 172,11.5 172,8.9 C172,4 168,0 163.1,0 Z"
+          id="Shape"></path>
+      </symbol>
+    </svg>
+  </div>
+  <div class="wrap wrap-coupons">
+    <!--
+      注意：
+      一层固定导航不写在bar-box-top内部，并在bar导航后加上class[bar-absolute-top]
+      两层固定导航请写在bar-box-top内部，并在其后加上class[bar-absolute-top]
+     -->
+    <!-- <div class="bar bar-nav _border bar-absolute-top">
+      <a href="http://www.baidu.com" class="bar-item item-arrow">
+        <svg class="svg-arrow _left">
+          <use xlink:href="#svg-arrow" />
+        </svg>
+      </a>
+      <div class="bar-item">选择优惠券方式</div>
+    </div> -->
+    <!--/.bar-nav-->
+    <div class="bar-box-top bar-absolute-top">
+      <div class="bar bar-nav _border">
+        <a href="http://www.baidu.com" class="bar-item item-arrow">
+          <svg class="svg-arrow _left">
+            <use xlink:href="#svg-arrow" />
+          </svg>
+        </a>
+        <div class="bar-item">优惠券</div>
+      </div>
+      <!--/.bar-nav-->
+      <div class="main-tab">
+        <nav class="main-tab-links">
+          <div class="item _active">
+            可用
+          </div>
+          <div class="item">
+            不可用
+          </div>
+        </nav>
+      </div>
+      <!-- /.main-tab -->
+    </div>
+    <!-- /.bar-box-top -->
+    <!-- 按钮不可用状态请替换[ btn-primary ]为[ btn-disabled ] -->
+    <div class="bar bar-button bar-absolute-bottom _pd">
+      <button class="btn-normal btn-primary _solid btn-xxl">不使用优惠券</button>
+    </div>
+    <!--/.bar-button -->
+    <div class="content">
+      <div class="tips-box">
+        <div class="tips-no-result">
+          <div class="icon-area">
+            <i class="icon icon-no-coupons">icon</i>
+          </div>
+          <p>没有你要的优惠券</p>
+        </div>
+        <!-- /.tips-no-result -->
+      </div>
+      <!-- /.tips-box -->
+      <div class="coupons-viewbox">
+        <!--
+        注意:
+        1.不可用状态请在list-coupons后追加class[coupons-disabled]
+        2.已使用、已失效和已抢光状态请在list-coupons后追加class[coupons-expried]
+        3.选中状态请在list-coupons后追加class[coupons-selected],
+          选中标识默认是灰色状态，选中后请在select-tag后追加class[has-selected]
+        -->
+        <div class="list-coupons">
+          <svg class="svg-coupons">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-coupons"></use>
+          </svg>
+          <!-- 选中状态标识 -->
+          <div class="select-tag">
+            <svg class="svg-check">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-check"></use>
+            </svg>
+          </div>
+          <!-- 已使用/已失效状态标识-->
+          <div class="disabled-img">
+            <span class="text">已使用</span>
+          </div>
+          <div class="coupons-body">
+            <div class="coupons">
+              <div class="item-price">
+                <em>¥</em>234</div>
+              <div class="text">满155可用</div>
+            </div>
+            <!-- /.coupons-bg -->
+            <div class="item-inner">
+              <div class="item-title _ellipsis">人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券</div>
+              <div class="item-subtitle">
+                有效期：2017-08-24-2017-09-30003
+              </div>
+              <div class="details-info">
+                <span class="text _ellipsis">限品类：此优惠券仅限于某些商品使用</span>
+                <svg class="svg-arrow _up">
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow"></use>
+                </svg>
+              </div>
+            </div>
+            <!-- /.item-inner -->
+            <div class="item-align-center">
+              <a href="javascript:;" class="btn-normal btn-primary btn-xs">立即使用</a>
+            </div>
+          </div>
+          <!-- /.coupons-body -->
+          <div class="coupons-footer disB">
+            限品类：此优惠券仅限于某些商品使用 限品类：此优惠券仅限于某些商品使用
+          </div>
+          <!-- /.coupons-footer -->
+        </div>
+        <!-- list-coupons -->
+        <div class="content-block-title">
+          <span class="title text-primary">您还可以和以下优惠叠加使用</span>
+        </div>
+        <div class="list-coupons coupons-selected">
+          <svg class="svg-coupons">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-coupons"></use>
+          </svg>
+          <!-- 选中状态标识 -->
+          <div class="select-tag has-selected">
+            <svg class="svg-check">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-check"></use>
+            </svg>
+          </div>
+          <!-- 已使用/已失效状态标识-->
+          <div class="disabled-img">
+            <span class="text">已使用</span>
+          </div>
+          <div class="coupons-body">
+            <div class="coupons">
+              <div class="item-price">
+                <em>¥</em>2</div>
+              <div class="text">满155可用</div>
+            </div>
+            <!-- /.coupons-bg -->
+            <div class="item-inner">
+              <div class="item-title _ellipsis">人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券</div>
+              <div class="item-subtitle">
+                有效期：2017.08.24-2017.09.30
+              </div>
+              <div class="details-info">
+                <span class="text _ellipsis">限品类：此优惠券仅限于某些商品使用</span>
+                <svg class="svg-arrow _up">
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow"></use>
+                </svg>
+              </div>
+            </div>
+            <!-- /.item-inner -->
+            <div class="item-align-center">
+              <a href="javascript:;" class="btn-normal btn-primary btn-xs">立即使用</a>
+            </div>
+          </div>
+          <!-- /.coupons-body -->
+          <div class="coupons-footer disB">
+            限品类：此优惠券仅限于某些商品使用 限品类：此优惠券仅限于某些商品使用
+          </div>
+          <!-- /.coupons-footer -->
+        </div>
+        <!-- list-coupons -->
+        <div class="list-coupons coupons-expried">
+          <svg class="svg-coupons">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-coupons"></use>
+          </svg>
+          <!-- 已使用/已失效状态标识-->
+          <div class="disabled-img">
+            <span class="text">已使用</span>
+          </div>
+          <div class="coupons-body">
+            <div class="coupons">
+              <div class="text-slogan">促销活动</div>
+            </div>
+            <!-- /.coupons-bg -->
+            <div class="item-inner">
+              <div class="item-title _ellipsis">人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券</div>
+              <div class="item-subtitle">
+                有效期：2017.08.24-2017.09.30
+              </div>
+            </div>
+            <!-- /.item-inner -->
+            <div class="item-align-center">
+              <a href="javascript:;" class="btn-normal btn-primary btn-xs">立即使用</a>
+            </div>
+          </div>
+          <!-- /.coupons-body -->
+          <div class="coupons-footer disN">
+            限品类：此优惠券仅限于某些商品使用 限品类：此优惠券仅限于某些商品使用
+          </div>
+          <!-- /.coupons-footer -->
+        </div>
+        <!-- list-coupons -->
+        <div class="list-coupons coupons-disabled">
+          <svg class="svg-coupons">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-coupons"></use>
+          </svg>
+          <!-- 选中状态标识 -->
+          <div class="selected disN">
+            <svg class="svg-check">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-check"></use>
+            </svg>
+          </div>
+          <!-- 已使用/已失效状态标识-->
+          <div class="disabled-img">
+            <span class="text">已使用</span>
+          </div>
+          <div class="coupons-body">
+            <div class="coupons">
+              <div class="item-price">
+                <em>¥</em>24</div>
+              <div class="text">满155可用</div>
+            </div>
+            <!-- /.coupons-bg -->
+            <div class="item-inner">
+              <div class="item-title _ellipsis">人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券</div>
+              <div class="item-subtitle">
+                有效期：2017.08.24-2017.09.30
+              </div>
+              <div class="details-info">
+                <span class="text _ellipsis">限品类：此优惠券仅限于某些商品使用</span>
+                <svg class="svg-arrow _up">
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow"></use>
+                </svg>
+              </div>
+            </div>
+            <!-- /.item-inner -->
+            <div class="item-align-center">
+              <a href="javascript:;" class="btn-normal btn-primary btn-xs">立即使用</a>
+            </div>
+          </div>
+          <!-- /.coupons-body -->
+          <div class="coupons-footer disN">
+            限品类：此优惠券仅限于某些商品使用 限品类：此优惠券仅限于某些商品使用
+          </div>
+          <!-- /.coupons-footer -->
+        </div>
+        <!-- list-coupons -->
+        <div class="list-coupons coupons-disabled">
+          <svg class="svg-coupons">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-coupons"></use>
+          </svg>
+          <!-- 选中状态标识 -->
+          <div class="selected disN">
+            <svg class="svg-check">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-check"></use>
+            </svg>
+          </div>
+          <!-- 已使用/已失效状态标识-->
+          <div class="disabled-img">
+            <span class="text">已使用</span>
+          </div>
+          <div class="coupons-body">
+            <div class="coupons">
+              <div class="item-price">
+                <em>¥</em>24</div>
+              <div class="text">满155可用</div>
+            </div>
+            <!-- /.coupons-bg -->
+            <div class="item-inner">
+              <div class="item-title _ellipsis">人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券</div>
+              <div class="item-subtitle">
+                有效期：2017.08.24-2017.09.30
+              </div>
+              <div class="details-info">
+                <span class="text _ellipsis">限品类：此优惠券仅限于某些商品使用</span>
+                <svg class="svg-arrow _up">
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow"></use>
+                </svg>
+              </div>
+            </div>
+            <!-- /.item-inner -->
+            <div class="item-align-center">
+              <a href="javascript:;" class="btn-normal btn-primary btn-xs">立即使用</a>
+            </div>
+          </div>
+          <!-- /.coupons-body -->
+          <div class="coupons-footer disN">
+            限品类：此优惠券仅限于某些商品使用 限品类：此优惠券仅限于某些商品使用
+          </div>
+          <!-- /.coupons-footer -->
+        </div>
+        <!-- list-coupons -->
+        <div class="list-coupons coupons-selected">
+          <svg class="svg-coupons">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-coupons"></use>
+          </svg>
+          <!-- 选中状态标识 -->
+          <div class="select-tag">
+            <svg class="svg-check">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-check"></use>
+            </svg>
+          </div>
+          <!-- 已使用/已失效状态标识-->
+          <div class="disabled-img">
+            <span class="text">已使用</span>
+          </div>
+          <div class="coupons-body">
+            <div class="coupons">
+              <div class="item-price">
+                <em>¥</em>24</div>
+              <div class="text">满155可用</div>
+            </div>
+            <!-- /.coupons-bg -->
+            <div class="item-inner">
+              <div class="item-title _ellipsis">人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券</div>
+              <div class="item-subtitle">
+                有效期：2017.08.24-2017.09.30
+              </div>
+              <div class="details-info">
+                <span class="text _ellipsis">限品类：此优惠券仅限于某些商品使用</span>
+                <svg class="svg-arrow _up">
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow"></use>
+                </svg>
+              </div>
+            </div>
+            <!-- /.item-inner -->
+            <div class="item-align-center">
+              <a href="javascript:;" class="btn-normal btn-primary btn-xs">立即使用</a>
+            </div>
+          </div>
+          <!-- /.coupons-body -->
+          <div class="coupons-footer disB">
+            限品类：此优惠券仅限于某些商品使用 限品类：此优惠券仅限于某些商品使用
+          </div>
+          <!-- /.coupons-footer -->
+        </div>
+        <!-- list-coupons -->
+        <div class="list-coupons coupons-expried">
+          <svg class="svg-coupons">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-coupons"></use>
+          </svg>
+          <!-- 选中状态标识 -->
+          <div class="selected">
+            <svg class="svg-check">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-check"></use>
+            </svg>
+          </div>
+          <!-- 已使用/已失效状态标识-->
+          <div class="disabled-img">
+            <span class="text">已抢光</span>
+          </div>
+          <div class="coupons-body">
+            <div class="coupons">
+              <div class="item-price">
+                <em>¥</em>24</div>
+              <div class="text">满155可用</div>
+            </div>
+            <!-- /.coupons-bg -->
+            <div class="item-inner">
+              <div class="item-title _ellipsis">人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券</div>
+              <div class="item-subtitle">
+                有效期：2017.08.24-2017.09.30
+              </div>
+              <div class="details-info">
+                <span class="text _ellipsis">限品类：此优惠券仅限于某些商品使用</span>
+                <svg class="svg-arrow _up">
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow"></use>
+                </svg>
+              </div>
+            </div>
+            <!-- /.item-inner -->
+            <div class="item-align-center">
+              <a href="javascript:;" class="btn-normal btn-primary btn-xs">立即使用</a>
+            </div>
+          </div>
+          <!-- /.coupons-body -->
+          <div class="coupons-footer disN">
+            限品类：此优惠券仅限于某些商品使用 限品类：此优惠券仅限于某些商品使用
+          </div>
+          <!-- /.coupons-footer -->
+        </div>
+        <!-- list-coupons -->
+        <div class="list-coupons coupons-disabled">
+          <svg class="svg-coupons">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-coupons"></use>
+          </svg>
+          <!-- 选中状态标识 -->
+          <div class="selected">
+            <svg class="svg-check">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-check"></use>
+            </svg>
+          </div>
+          <!-- 已使用/已失效状态标识-->
+          <div class="disabled-img">
+            <span class="text">已使用</span>
+          </div>
+          <div class="coupons-body">
+            <div class="coupons">
+              <div class="item-price">
+                <em>¥</em>24</div>
+              <div class="text">满155可用</div>
+            </div>
+            <!-- /.coupons-bg -->
+            <div class="item-inner">
+              <div class="item-title _ellipsis">人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券</div>
+              <div class="item-subtitle">
+                有效期：2017.08.24-2017.09.30
+              </div>
+              <div class="details-info">
+                <span class="text _ellipsis">限品类：此优惠券仅限于某些商品使用</span>
+                <svg class="svg-arrow _up">
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow"></use>
+                </svg>
+              </div>
+            </div>
+            <!-- /.item-inner -->
+            <div class="item-align-center">
+              <a href="javascript:;" class="btn-normal btn-primary btn-xs">立即使用</a>
+            </div>
+          </div>
+          <!-- /.coupons-body -->
+          <div class="coupons-footer disN">
+            限品类：此优惠券仅限于某些商品使用 限品类：此优惠券仅限于某些商品使用
+          </div>
+          <!-- /.coupons-footer -->
+        </div>
+        <!-- list-coupons -->
+        <div class="list-coupons coupons-disabled">
+          <svg class="svg-coupons">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-coupons"></use>
+          </svg>
+          <!-- 选中状态标识 -->
+          <div class="selected">
+            <svg class="svg-check">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-check"></use>
+            </svg>
+          </div>
+          <!-- 已使用/已失效状态标识-->
+          <div class="disabled-img">
+            <span class="text">已使用</span>
+          </div>
+          <div class="coupons-body">
+            <div class="coupons">
+              <div class="item-price">
+                <em>¥</em>24</div>
+              <div class="text">满155可用</div>
+            </div>
+            <!-- /.coupons-bg -->
+            <div class="item-inner">
+              <div class="item-title _ellipsis">人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券人保赠送优惠券</div>
+              <div class="item-subtitle">
+                有效期：2017.08.24-2017.09.30
+              </div>
+              <div class="details-info">
+                <span class="text _ellipsis">限品类：此优惠券仅限于某些商品使用</span>
+                <svg class="svg-arrow _up">
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow"></use>
+                </svg>
+              </div>
+            </div>
+            <!-- /.item-inner -->
+            <div class="item-align-center">
+              <a href="javascript:;" class="btn-normal btn-primary btn-xs">立即使用</a>
+            </div>
+          </div>
+          <!-- /.coupons-body -->
+          <div class="coupons-footer disN">
+            限品类：此优惠券仅限于某些商品使用 限品类：此优惠券仅限于某些商品使用
+          </div>
+          <!-- /.coupons-footer -->
+        </div>
+        <!-- list-coupons -->
+      </div>
+      <!-- .coupons-viewbox -->
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.wrap -->
+</body>
+
+</html>

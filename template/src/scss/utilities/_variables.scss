@@ -1,0 +1,36 @@
+// 开关设置
+//-----------------------------------------------------
+$lte7:                  true !default; // 是否兼容ie6-7
+
+
+// Color
+$color-primary: #ff2d47;
+$color-text: #333333;
+
+$color-title: #333333;
+$color-subtitle: #999999;
+$color-entitle: #999999;
+$color-border: #cccccc;
+$color-border-light: #eeeeee;
+
+
+$color-red: #ff2d47;
+$color-orange: #ffb600;
+$color-disabled: #cccccc;
+
+// Bg
+$bg-primary: #f4f4f4;
+
+//自定义图片路径的版本号
+$rev: '111';
+
+// z-index
+// 大层级z-index设置，页面内使用的层级值请低于555
+$max-zindex: 1000; //最大的层级设定
+$modal-zindex: 999;
+$toast-zindex: 999;
+$layer-modal-zindex: 888;
+$layer-zindex: 666;
+
+$bar-zindex: 555; //一般情况下层级低于layer的
+

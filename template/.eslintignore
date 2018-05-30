@@ -2,6 +2,6 @@
 /config/
 /dist/
 /*.js
-{{#unit}}
-/test/unit/coverage/
-{{/unit}}
+/src/validators/*.js
+/src/utils/*.js
+/src/templates/**/*.html

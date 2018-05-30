@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="<%= htmlWebpackPlugin.options.inject_keywords %>" />
+    <meta name="description" content="<%= htmlWebpackPlugin.options.inject_description %>" />
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <title>物流信息</title>
+
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../static/vendor/swiper/css/swiper.min.css" />
+    <!-- 引入组件库 -->
+    <script src="../../static/libs/flexible.js"></script>
+    <script src="../../static/vendor/swiper/js/swiper.min.js"></script>
+  </head>
+  <body>
+  <!--svg 图标集合-->
+  <div class="disN">
+    <?xml version="1.0" standalone="no"?>
+    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <symbol id="svg-arrow" viewBox="0 0 438 750">
+        <desc>svg 箭头</desc>
+        <path d="M430.696401,395.102744 C431.18292,394.129707 432.034327,393.278299 432.399216,392.305262 C440.913291,374.547334 438.115809,352.653997 423.033733,338.423328 L79.30835,13.307281 C60.577384,-4.450647 31.02138,-3.59924 13.263452,15.131726 C-4.494476,33.862692 -3.643069,63.418696 15.087897,81.176624 L323.540682,372.966148 L16.304193,669.012709 C-2.305143,686.892267 -2.791662,716.448271 15.087897,735.057607 C24.210121,744.544719 36.494715,749.409905 48.65768,749.409905 C60.334126,749.409905 72.010572,745.031238 81.011166,736.273903 L421.574178,407.995485 C422.182326,407.387337 422.425586,406.4143 423.155363,405.806151 C423.641882,405.319632 424.1284,404.954743 424.736548,404.468225 C427.53403,401.670745 428.871956,398.265115 430.696401,395.102744 L430.696401,395.102744 L430.696401,395.102744 Z"></path>
+      </symbol>
+      <symbol id="svg-check" viewBox="0 0 172 121">
+        <desc>svg 对勾</desc>
+        <path d="M163.1,0 C160.6,0 158.3,1 156.7,2.7 L156.7,2.7 L60.8,98.7 L15.8,53.6 L15.8,53.6 C14.2,51.8 11.8,50.6 9.1,50.6 C4.2,50.6 0.2,54.6 0.2,59.5 C0.2,62.1 1.3,64.5 3.2,66.1 L3.2,66.1 L54.5,117.6 C54.5,117.6 54.5,117.6 54.5,117.6 C56.1,119.2 58.4,120.3 60.9,120.3 C63.4,120.3 65.6,119.3 67.3,117.6 L169.2,15.4 C170.9,13.8 172,11.5 172,8.9 C172,4 168,0 163.1,0 Z" id="Shape"></path>
+      </symbol>
+    </svg>
+  </div>
+  <div class="wrap wrap-logistics-info">
+    <div class="bar bar-nav _border bar-absolute-top">
+      <a href="javascript:;" class="bar-item item-arrow">
+        <svg class="svg-arrow _left">
+          <use xlink:href="#svg-arrow" />
+        </svg>
+      </a>
+      <div class="bar-item">物流信息</div>
+    </div>
+    <!--/.bar-nav-->
+    <div class="content">
+      <div class="content-block-title _border">
+        <div class="tag tag-primary">包裹1</div>
+      </div>
+      <!-- /.content-block-title -->
+      <div class="logistics-info">
+        <div class="item">物流公司：顺丰速运</div>
+        <div class="item">快递单号：537874638</div>
+      </div>
+      <div class="space-20"></div>
+      <div class="steps-column">
+        <div class="item">
+          <div class="steps-time">
+            <p>2017.12.25</p>
+            <p>10:30</p>
+          </div>
+          <div class="steps-icon">
+            <div class="svg-wrap">
+              <svg class="svg-check">
+                <use xlink:href="#svg-check" />
+              </svg>
+            </div>
+          </div>
+          <div class="steps-text">快件已被签收，签收人是于本人，感谢使用顺丰快递，期待再次为您服务</div>
+        </div>
+        <div class="item _current">
+          <div class="steps-time">
+            <p>2017.12.25</p>
+            <p>10:30</p>
+          </div>
+          <div class="steps-icon">
+            <div class="svg-wrap">
+              <svg class="svg-check">
+                <use xlink:href="#svg-check" />
+              </svg>
+            </div>
+          </div>
+          <div class="steps-text">包裹正在等待揽收</div>
+        </div>
+      </div>
+      <!-- /.steps-column -->
+      <form action="" class="form-normal form-logistics">
+        <div class="input-cloumn">
+          <div class="item-input">
+            <!-- 注意：选择后的文字是深灰色#333，去掉class[text-grey-light] -->
+            <span class="text text-grey-light">选择物流公司</span>
+          </div>
+          <svg class="svg-arrow _down">
+            <use xlink:href="#svg-arrow"></use>
+          </svg>
+        </div>
+        <div class="input-cloumn">
+          <div class="item-input">
+            <input type="text" placeholder="填写快递单">
+          </div>
+        </div>
+        <div class="button-block">
+          <button type="button" class="btn-normal btn-primary _solid btn-xxl">提交</button>
+        </div>
+      </form>
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.wrap -->
+  </body>
+</html>

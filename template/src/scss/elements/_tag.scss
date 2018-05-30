@@ -1,0 +1,128 @@
+/* 标签 */
+.tag {
+  position: relative;
+  display: inline-block;
+  @include font-dpr(22px);
+  @include lh-dpr(38px);
+  // @include border-dpr(1px, solid, $color-border);
+  background: #ffffff;
+  border: 1px solid $color-border;
+  color: $color-text;
+  padding: 0 px2rem(12px);
+  border-radius: px2rem(4px);
+  text-align: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  &._solid {
+    background: $color-border;
+  }
+  /* 带质感的标签 */
+  &._honor {
+    color: #ffffff;
+    background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, .2), rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, 0) 50%);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, .2), rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, 0) 50%);
+  }
+  .svg-close-circle{
+    position: absolute;
+    right: px2rem(-10px);
+    top: px2rem(-10px);
+    z-index: 1;
+  }
+}
+
+.tag-primary {
+  border-color: $color-primary;
+  color: $color-primary;
+  &._solid {
+    background-color: $color-primary;
+    border-color: $color-primary;
+    color: #ffffff;
+  }
+  &.tag-disabled {
+    border-color: #ccc;
+    margin-left: px2rem(5px);
+  }
+}
+.tag-disabled {
+  color: #999999;
+}
+
+// tag大小
+.tag-sm{
+  @include lh-dpr(30px);
+  @include font-dpr(22px);
+  padding: 0 px2rem(8px);
+}
+.tag-lg{
+  @include lh-dpr(48px);
+  @include font-dpr(26px);
+}
+.tag-xl{
+  @include lh-dpr(56px);
+  @include font-dpr(26px);
+}
+.tag-xxl{
+  @include lh-dpr(72px);
+  @include font-dpr(30px);
+}
+
+.tag-block {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-left: px2rem(30px);
+  .tag {
+    margin-right: px2rem(30px);
+    margin-bottom: px2rem(38px);
+    &._active {
+      color: $color-primary;
+      border-color: $color-primary;
+    }
+  }
+  &._random{
+    .tag._ellipsis{
+      max-width: px2rem(178px);
+    }
+  }
+  &.columns1 {
+    .tag {
+      flex: 0 0 97%;
+    }
+  }
+  &.columns2 {
+    .tag {
+      flex: 0 0 45.8%;
+    }
+  }
+  &.columns3 {
+    .tag {
+      flex: 0 0 29.1%;
+    }
+  }
+  &.columns4 {
+    .tag {
+      flex: 0 0 20.8%;
+      &.x2 {
+        flex: 0 0 47.1%;
+      }
+    }
+  }
+
+}
+.tag-interest{
+  padding-left: px2rem(45px);
+  .tag{
+    flex: 0 0 26.9% !important;
+    margin-right: px2rem(45px);
+  }
+}
+.tag-member{
+  background: #faf5f5;
+  color: #192745;
+  @include font-dpr(26px);
+  border-radius: 0;
+  border: 0;
+  .svg-member-circle{
+    margin-right: px2rme(10px);
+  }
+}
