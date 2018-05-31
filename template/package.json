@@ -1,8 +1,8 @@
 {
-  "name": "oil-mall-wx",
+  "name": "{{name}",
   "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "dewei <dewei@rocoinfo.com>",
+  "description": "{{ description }}",
+  "author": "{{ author }}",
   "private": true,
   "scripts": {
     "dev": "gulp sass && webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
